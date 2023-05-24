@@ -135,14 +135,16 @@ class AkunController extends Controller
         // $dataPengajuan = dataPengajuan::all();
         // $dataPerusahaan = dataPerusahaan::all();
         // $dataProduk = dataProduk::all();
-        $dataMitra = dataAkunMitra::all();
-        $dataKurir = dataAkunKurir::all();
+        // $users = User::all();
+        $users = User::where('id_role',  1)->get();
+        // dd($users);
+        
         // $dataDetailPengajuan = dataDetailPengajuan::find(3);
 
         // dd($dataPengajuan, $dataPerusahaan, $dataProduk, $dataDetailPengajuan);
         // @dd($dataDetailPengajuan->dataProduk());
 
-        return view('partnerMitra', compact('dataMitra','dataKurir'));
+        return view('partnerMitra', compact('users'));
     }
 
     public function showDataPartner_1()
@@ -150,19 +152,18 @@ class AkunController extends Controller
         // $dataPengajuan = dataPengajuan::all();
         // $dataPerusahaan = dataPerusahaan::all();
         // $dataProduk = dataProduk::all();
-        $dataMitra = dataAkunMitra::all();
-        $dataKurir = dataAkunKurir::all();
+        $users = User::where('id_role',  2)->get();
         // $dataDetailPengajuan = dataDetailPengajuan::find(3);
 
         // dd($dataPengajuan, $dataPerusahaan, $dataProduk, $dataDetailPengajuan);
         // @dd($dataDetailPengajuan->dataProduk());
 
-        return view('partnerKurir', compact('dataMitra','dataKurir'));
+        return view('partnerKurir',  compact('users'));
     }
 
     public function showDataAkunMitra($id)
     {
-        $dataAkunMitra = dataAkunMitra::find($id);
+        $users = User::find($id);
 
         // @dd($dataDetailPengajuan);
         // $dataPengajuan = dataPengajuan::all();
@@ -176,13 +177,13 @@ class AkunController extends Controller
         // dd($dataPengajuan, $dataPerusahaan, $dataProduk, $dataDetailPengajuan);
         // @dd($dataDetailPengajuan->dataProduk());
 
-        return view('detailPartnerMitra', compact('dataAkunMitra'));
+        return view('detailPartnerMitra', compact('users'));
 
     }
 
     public function showDataAkunKurir($id)
     {
-        $dataAkunKurir = dataAkunKurir::find($id);
+        $users = User::find($id);
         // @dd($dataDetailPengajuan);
         // $dataPengajuan = dataPengajuan::all();
         // $dataPerusahaan = dataPerusahaan::all();
@@ -195,7 +196,7 @@ class AkunController extends Controller
         // dd($dataPengajuan, $dataPerusahaan, $dataProduk, $dataDetailPengajuan);
         // @dd($dataDetailPengajuan->dataProduk());
 
-        return view('detailPartnerKurir', compact('dataAkunKurir'));
+        return view('detailPartnerKurir', compact('users'));
 
     }
 

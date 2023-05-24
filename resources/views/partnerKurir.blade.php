@@ -7,7 +7,7 @@
         <div>
             <table class="data-pengajuan border w-full overflow-x-scroll">
                 <tr>
-                    <th>Id Mitra</th>
+                    
                     <th>Nama</th>
                     <th>Username</th>
                     <th>Email</th>
@@ -18,17 +18,15 @@
 
                 </tr>
 
-                @foreach ($dataKurir
-                 as $item)
+                @foreach ($users as $item)
 
                 <tr>
-                    <td><a href="/detailPartnerKurir/{{ $item->id_kurir }}">{{ $item->id_kurir }}</a></td>
-                    <td><a href="#">{{ $item->nama }}</a></td>
+                    <td><a href="/detailPartnerKurir/{{ $item->id }}">{{ $item->nama }}</a></td>
                     <td><a href="#">{{ $item->username }}</a></td>
                     <td><a href="#">{{ $item->email }}</a></td>
-                    <td><a href="#">{{ $item->nomor_identitas }}</a></td>
-                    <td><a href="#">{{ $item->jalan }}, {{ $item->dataKota->nama }}, {{ $item->dataProvinsi->nama }}</a></td>
-                    <td><a href="#">{{ $item->no_telpon }}</a></td>
+                    <td><a href="#">{{ $item->no_identitas }}</a></td>
+                    <td><a href="#">{{ $item->jalan }}, {{ $item->kota->nama }}, {{ $item->provinsi->nama }}</a></td>
+                    <td><a href="#">{{ $item->no_telepon }}</a></td>
                     <td><a href="#">{{ $item->tanggal_lahir }}</a></td>
 
                 </tr>

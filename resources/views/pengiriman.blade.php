@@ -74,7 +74,7 @@
                     <th>Status</th>
                 </tr>
                 <tr>
-                    <td><a href="{{ route('detailPengiriman') }}">1</a></td>
+                    
                 </tr>
             </table>
         </div>

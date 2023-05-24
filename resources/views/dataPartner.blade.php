@@ -20,13 +20,7 @@
             </a>
             
             
-            <!-- @if(Str::length(Auth::guard('dataAkunAdmin')->user()) > 0)
-            <a href="{{ route('buat_pengajuan') }}" class="lg:w-1/2 border">
-                <div>
-                    <h1 class="text-3xl font-medium mb-4" align="center"> Konfirmasi Pengajuan</h1>
-                </div>
-            </a>
-            @endif -->
+         
         </div>
     </div>
 </div>

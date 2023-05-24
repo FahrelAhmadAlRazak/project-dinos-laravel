@@ -200,15 +200,17 @@ Route::get('/tolakPengajuan/{pengajuan}',[App\Http\Controllers\PengajuanControll
 // Route::get('/buat_pengajuan_all',[App\Http\Controllers\ShowProvinsiController::class,'showProvinsi'])->name('buat_pengajuan1');
 
 
+
+
+// Fitur Partner
+
 Route::get('/parnerMitra',[App\Http\Controllers\AkunController::class,'showDataPartner'])->name('showDataPartner');
-
-Route::get('/detailPartnerMitra/{id}',[App\Http\Controllers\AkunController::class,'showDataAkunMitra'])->name('showDataAkunMitra');
-
 
 Route::get('/partnerKurir',[App\Http\Controllers\AkunController::class,'showDataPartner_1'])->name('showDataPartner_1');
 
-Route::get('/detailPartnerKurir/{id}',[App\Http\Controllers\AkunController::class,'showDataAkunKurir'])->name('showDataAkunKurir');
-
-
+Route::get('/detailPartnerMitra/{id}',[App\Http\Controllers\AkunController::class,'showDataAkunMitra'])->name('showDataAkunMitra');
 
 Route::get('/detailPartnerKurir/{id}',[App\Http\Controllers\AkunController::class,'showDataAkunKurir'])->name('showDataAkunKurir');
+
+
+

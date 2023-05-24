@@ -16,11 +16,11 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'nama' => 'Andreas Yoga Pratama',
-            'username' => 'andreas',
-            'email' => 'andreasyoga@gmail.com',
-            'password' => bcrypt('andreas123'),
-            'no_identitas' => '203410101067',
+            'nama' => 'Riyatnandar Wahyu',
+            'username' => 'wahyu',
+            'email' => 'wahyu@gmail.com',
+            'password' => bcrypt('wahyu123'),
+            'no_identitas' => '212410101097',
             'no_telepon' => '082344297648',
             'tanggal_lahir' => '2000-05-14',
             'jalan' => 'jalan burghoven no. 12',
@@ -30,11 +30,11 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'nama' => 'Rayyana Shantika',
-            'username' => 'rayyana',
-            'email' => 'rayyana_sa@gmail.com',
-            'password' => bcrypt('rayyana123'),
-            'no_identitas' => '201710103044',
+            'nama' => 'Novel Kinandana',
+            'username' => 'Novel',
+            'email' => 'novel@gmail.com',
+            'password' => bcrypt('novel123'),
+            'no_identitas' => '212410101044',
             'no_telepon' => '082541807764',
             'tanggal_lahir' => '2002-02-23',
             'jalan' => 'jalan notherham no. 4',
@@ -44,11 +44,11 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'nama' => 'Dikta Rajendra Pratama',
-            'username' => 'dikta',
-            'email' => 'diktarajendra@gmail.com',
-            'password' => bcrypt('dikta123'),
-            'no_identitas' => '202510104019',
+            'nama' => 'Fahrel Ahmad Al Razak',
+            'username' => 'Fahrel',
+            'email' => 'fahrelrazak@gmail.com',
+            'password' => bcrypt('fahrel123'),
+            'no_identitas' => '212410101097',
             'no_telepon' => '082214733688',
             'tanggal_lahir' => '1999-11-05',
             'jalan' => 'jalan trivana no. 9',

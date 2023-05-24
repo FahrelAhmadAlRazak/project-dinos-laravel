@@ -9,26 +9,26 @@
             <tr>
                 <td class="w-1/3 px-4 py-3">Id Mitra</td>
                 {{-- @dd($dataAkunMitra->id_mitra) --}}
-                <td>{{ $dataAkunMitra->id_mitra }}</td>
+                <td>{{ $users->id }}</td>
 
             </tr>
 
             <tr class="bg-slate-200">
                 <td class="w-1/3 px-4 py-3">Nama</td>
 
-                <td>{{ $dataAkunMitra->nama }} </td>
+                <td>{{ $users->nama }} </td>
 
             </tr>
             <tr>
                 <td class="w-1/3 px-4 py-3">Username</td>
 
-                <td>{{ $dataAkunMitra->username }}</td>
+                <td>{{ $users->username }}</td>
 
             </tr>
             <tr class="bg-slate-200">
                 <td class="w-1/3 px-4 py-3">Email</td>
 
-                <td>{{ $dataAkunMitra->email }}</td>
+                <td>{{ $users->email }}</td>
 
                 <!-- <td>: admin@mail.com</td> -->
             </tr>
@@ -38,7 +38,7 @@
             <tr class="bg-slate-200">
                 <td class="w-1/3 px-4 py-3">Jalan</td>
 
-                <td>{{ $dataAkunMitra->jalan }}</td>
+                <td>{{ $users->jalan }}</td>
 
                 <!-- <td>: admin@mail.com</td> -->
             </tr>
@@ -46,7 +46,7 @@
             <tr>
                 <td class="w-1/3 px-4 py-3">Kota</td>
 
-                <td>{{ $dataAkunMitra->dataKota->nama }}</td>
+                <td>{{ $users->kota->nama }}</td>
 
                 <!-- <td>: admin@mail.com</td> -->
             </tr>
@@ -54,7 +54,7 @@
             <tr class="bg-slate-200">
                 <td class="w-1/3 px-4 py-3">Provinsi</td>
 
-                <td>{{ $dataAkunMitra->dataProvinsi->nama }}</td>
+                <td>{{ $users->provinsi->nama }}</td>
 
                 <!-- <td>: admin@mail.com</td> -->
             </tr>
@@ -62,14 +62,14 @@
             <tr>
                 <td class="w-1/3 px-4 py-3">No Telepon</td>
 
-                <td>{{ $dataAkunMitra->no_telpon }}</td>
+                <td>{{ $users->no_telepon }}</td>
 
                 <!-- <td>: 082345678901</td> -->
             </tr>
             <tr class="bg-slate-200">
                 <td class="w-1/3 px-4 py-3">Tanggal Lahir</td>
 
-                <td>{{ $dataAkunMitra->tanggal_lahir }}</td>
+                <td>{{ $users->tanggal_lahir }}</td>
 
                 <!-- <td>: 2000-01-01</td> -->
             </tr>
