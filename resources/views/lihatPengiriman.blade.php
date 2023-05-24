@@ -14,6 +14,7 @@
                     <th>Status</th>
                 </tr>
 
+               
                 @foreach ($pengiriman as $item)
                 {{-- @dd($item->dataProduk) --}}
                 <tr class="bg-slate-200">
@@ -25,6 +26,9 @@
                     <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->statusPengiriman->status }}</a></td>
                 </tr>
                 @endforeach
+                
+
+
             </table>
         </div>
 

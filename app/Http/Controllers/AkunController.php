@@ -81,7 +81,7 @@ class AkunController extends Controller
         if (Hash::check( $request['password'], Auth::user()->getAuthPassword())) {
             return redirect()->route('show_edit_akun')->with(['validated' => true]);
         }
-        return back();
+        return back()->with('error','Password yang anda masukkan salah!');
         
     }
 
