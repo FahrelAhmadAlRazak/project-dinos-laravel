@@ -70,7 +70,7 @@ class AkunController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect('/dashboard');
         }
-        return redirect()->back()->with(['message' => '']);
+        return redirect()->back()->with(['error' => 'Masukkan kembali Email dan password!']);
     }
 
     public function show_akun(){
@@ -106,11 +106,21 @@ class AkunController extends Controller
             'id_kota'=> 'required',
             'id_role' => 'required'
         ]);
+
+        // $s = auth()->user()->getAuthPassword();
+        // dd($s);
+
+        if($request['password']){
+            $validate['password'] = Hash::make($request['password']);
+        }else{
+            $validate['password'] = Auth::user()->getAuthPassword();
+        }
         
-        $validate['password'] = bcrypt($request['password']);
+
+        // $validate['password'] = bcrypt($request['password']);
         // dd($validate);
         User::where('id', auth()->user()->id)->update($validate);
-
+        // dd($s);
         return redirect()->route('show_akun')->with(['validated' => true]);
 
     }
@@ -121,12 +131,6 @@ class AkunController extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
     }
-
-    
-
-
-    
-
 
     
 

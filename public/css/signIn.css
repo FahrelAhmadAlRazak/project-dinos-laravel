@@ -72,3 +72,12 @@ body {
 .p-signin{
     margin-top: 10px;
 }
+
+.form-signup{
+    display: flex;
+}
+
+.form-group1{
+    /* padding: 10px; */
+    /* margin: 10px; */
+}

@@ -23,8 +23,8 @@ return new class extends Migration
             $table->bigInteger('total_pengeluaran');
             $table->bigInteger('pemasukan');
             $table->bigInteger('profit');
-            $table->string('keterangan');
-            $table->foreignId('id_user');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users');
         });
     }
 

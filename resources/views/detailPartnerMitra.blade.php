@@ -8,7 +8,6 @@
 
             <tr>
                 <td class="w-1/3 px-4 py-3">Id Mitra</td>
-                {{-- @dd($dataAkunMitra->id_mitra) --}}
                 <td>{{ $users->id }}</td>
 
             </tr>

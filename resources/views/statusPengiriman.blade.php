@@ -1,4 +1,4 @@
-@extends('layoutsPengiriman.masterTambahPengiriman')
+@extends('layoutsDashboard.masterDashboard')
 @section('content')
 
 <div id="content" class="pt-24 px-2 py-4 flex-grow h-screen">

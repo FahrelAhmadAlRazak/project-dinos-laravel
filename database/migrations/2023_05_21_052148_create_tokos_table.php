@@ -16,8 +16,10 @@ return new class extends Migration
             $table->timestamps();
             $table->string('nama');
             $table->string('jalan');
-            $table->foreignId('id_kota');
-            $table->foreignId('id_provinsi');
+            $table->unsignedBigInteger('id_kota');
+            $table->foreign('id_kota')->references('id')->on('kotas');
+            $table->unsignedBigInteger('id_provinsi');
+            $table->foreign('id_provinsi')->references('id')->on('provinsis');
         });
     }
 

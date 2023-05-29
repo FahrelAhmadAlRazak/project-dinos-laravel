@@ -129,7 +129,7 @@
             </table>
             <div class="flex gap-4 sm:w-1/3">
                 <button class="w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white" id="simpanData">Simpan</button>
-                <a href="{{ route('edit_akun') }}" class="w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white text-center">Kembali</a>
+                <a href="{{ route('show_akun') }}" class="w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white text-center">Kembali</a>
                 {{-- <a href="{{ route('update') }}" class="w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white text-center">Simpan</a> --}}
             </div>
         </form>
@@ -206,9 +206,6 @@
         setTimeout(function(){
             form.submit();
         },1000)
-
-
-        
     })
 </script>
 @endsection

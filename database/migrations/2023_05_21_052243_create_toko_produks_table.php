@@ -16,8 +16,10 @@ return new class extends Migration
             $table->timestamps();
             $table->bigInteger('stok_produk');
             $table->bigInteger('total_penjualan');
-            $table->foreignId('id_toko');
-            $table->foreignId('id_produk');
+            $table->unsignedBigInteger('id_toko');
+            $table->foreign('id_toko')->references('id')->on('tokos');
+            $table->unsignedBigInteger('id_produk');
+            $table->foreign('id_produk')->references('id')->on('produks');
         });
     }
 

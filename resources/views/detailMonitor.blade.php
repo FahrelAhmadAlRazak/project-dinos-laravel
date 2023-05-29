@@ -12,7 +12,7 @@
                     <tr>
                         <td class="w-1/3 px-4 py-3">Nama Produk yang Diajukan</td>
                         <td>
-
+                            {{  }}
                         </td>
                     </tr>
                 </div>

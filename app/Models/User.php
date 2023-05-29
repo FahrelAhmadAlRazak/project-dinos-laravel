@@ -37,5 +37,14 @@ class User extends Authenticatable
         return $this->hasMany(PengirimanAdmin::class, 'id_kurir', 'id');
     }
 
+    public function artikel()
+    {
+        return $this->hasMany(Artikel::class, 'id_author', 'id');
+    }
+
+    public function pencatatan(){
+        return $this->hasMany(Pencatatan::class, 'id_user', 'id');
+    }
+
     
 }

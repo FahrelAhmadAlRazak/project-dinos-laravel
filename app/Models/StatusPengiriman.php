@@ -15,4 +15,9 @@ class StatusPengiriman extends Model
     {
         return $this->hasMany(PengirimanAdmin::class, 'id_status_pengiriman', 'id');
     }
+
+    public function pengirimanToko()
+    {
+        return $this->hasMany(PengirimanToko::class, 'id_status_pengiriman', 'id');
+    }
 }

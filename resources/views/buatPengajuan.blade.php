@@ -15,7 +15,7 @@
                     </tr>
                 </div>
                 <div>
-                    
+
                 </div>
                 <tr>
                     <td class="w-1/3 px-4 py-3 mb-3">Alamat Tempat Usaha</td>
@@ -30,7 +30,7 @@
                                 <option value="{{ $item->id }}"> {{ $item->nama }} </option>
                                 @endforeach
                             </select>
-    
+
                             </select>
                         </div>
                         <div class="form-group">
@@ -42,7 +42,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        
+
                     </td>
                 </tr>
                 <div class="form-group">
@@ -69,9 +69,11 @@
                         </td>
                     </tr>
                 </div>
+
+                <!-- Produk1 -->
                 <div class="form-group">
                     <tr>
-                        <td class="w-1/3 px-4 py-3 mb-3">Nama Produk yang Diajukan</td>
+                        <td class="w-1/3 px-4 py-3 mb-3">Nama Produk 1 yang Diajukan</td>
                         <td>
                             <input type="text" name="nama_produk" id="nama_produk" class="w-full bg-transparent form-control" required>
                         </td>
@@ -79,7 +81,7 @@
                 </div>
                 <div class="form-group">
                     <tr class="bg-slate-200">
-                        <td class="w-1/3 px-4 py-3 mb-3">Jumlah Produk yang Diajukan</td>
+                        <td class="w-1/3 px-4 py-3 mb-3">Jumlah Produk 1 yang Diajukan</td>
                         <td>
                             <input type="number" name="jumlah_produk" id="jumlah_produk" class="w-full bg-transparent form-control" required>
                         </td>
@@ -87,7 +89,7 @@
                 </div>
                 <div class="form-group">
                     <tr>
-                        <td class="w-1/3 px-4 py-3">Harga Produk yang Diajuakan</td>
+                        <td class="w-1/3 px-4 py-3">Harga Produk 1 yang Diajuakan</td>
                         <td class="form-group">
                             <input type="text" name="harga_produk" id="harga_produk" class="w-full  bg-transparent form-control" required>
                         </td>
@@ -95,7 +97,7 @@
                 </div>
                 <div class="form-group">
                     <tr class="bg-slate-200">
-                        <td class="w-1/3 px-4 py-3">Deskripsi Produk yang Diajuakan</td>
+                        <td class="w-1/3 px-4 py-3">Deskripsi 1 Produk yang Diajuakan</td>
                         <td class="form-group">
                             <textarea type="text" name="deskripsi_produk" id="deskripsi_produk" class="w-full  bg-transparent form-control" required></textarea>
                         </td>
@@ -103,16 +105,104 @@
                 </div class="form-group">
                 <div>
                     <tr>
-                        <td class="w-1/3 px-4 py-3">Gambar Produk</td>
+                        <td class="w-1/3 px-4 py-3">Gambar 1 Produk</td>
                         <td class="form-group">
                             <input type="file" name="gambar_produk" id="gambar_produk" class="w-full  bg-transparent form-control" multiple>
                         </td>
                     </tr>
                 </div>
 
+                <!-- Produk2 -->
+                <!-- <div class="form-group">
+                    <tr>
+                        <td class="w-1/3 px-4 py-3 mb-3">Nama 2 Produk yang Diajukan</td>
+                        <td>
+                            <input type="text" name="nama_produk_2" id="nama_produk" class="w-full bg-transparent form-control" required>
+                        </td>
+                    </tr>
+                </div>
+                <div class="form-group">
+                    <tr class="bg-slate-200">
+                        <td class="w-1/3 px-4 py-3 mb-3">Jumlah 2 Produk yang Diajukan</td>
+                        <td>
+                            <input type="number" name="jumlah_produk_2" id="jumlah_produk" class="w-full bg-transparent form-control" required>
+                        </td>
+                    </tr>
+                </div>
+                <div class="form-group">
+                    <tr>
+                        <td class="w-1/3 px-4 py-3">Harga 2 Produk yang Diajuakan</td>
+                        <td class="form-group">
+                            <input type="text" name="harga_produk_2" id="harga_produk" class="w-full  bg-transparent form-control" required>
+                        </td>
+                    </tr>
+                </div>
+                <div class="form-group">
+                    <tr class="bg-slate-200">
+                        <td class="w-1/3 px-4 py-3">Deskripsi 2 Produk yang Diajuakan</td>
+                        <td class="form-group">
+                            <textarea type="text" name="deskripsi_produk_2" id="deskripsi_produk" class="w-full  bg-transparent form-control" required></textarea>
+                        </td>
+                    </tr>
+                </div class="form-group">
+                <div>
+                    <tr>
+                        <td class="w-1/3 px-4 py-3">Gambar 2 Produk</td>
+                        <td class="form-group">
+                            <input type="file" name="gambar_produk_2" id="gambar_produk" class="w-full  bg-transparent form-control" multiple>
+                        </td>
+                    </tr>
+                </div> -->
+
+                <!-- Produk3 -->
+                <!-- <div class="form-group">
+                    <tr>
+                        <td class="w-1/3 px-4 py-3 mb-3">Nama Produk 3 yang Diajukan</td>
+                        <td>
+                            <input type="text" name="nama_produk_3" id="nama_produk" class="w-full bg-transparent form-control" required>
+                        </td>
+                    </tr>
+                </div>
+                <div class="form-group">
+                    <tr class="bg-slate-200">
+                        <td class="w-1/3 px-4 py-3 mb-3">Jumlah Produk 3 yang Diajukan</td>
+                        <td>
+                            <input type="number" name="jumlah_produk_3" id="jumlah_produk" class="w-full bg-transparent form-control" required>
+                        </td>
+                    </tr>
+                </div>
+                <div class="form-group">
+                    <tr>
+                        <td class="w-1/3 px-4 py-3">Harga Produk 3 yang Diajuakan</td>
+                        <td class="form-group">
+                            <input type="text" name="harga_produk_3" id="harga_produk" class="w-full  bg-transparent form-control" required>
+                        </td>
+                    </tr>
+                </div>
+                <div class="form-group">
+                    <tr class="bg-slate-200">
+                        <td class="w-1/3 px-4 py-3">Deskripsi Produk 3 yang Diajuakan</td>
+                        <td class="form-group">
+                            <textarea type="text" name="deskripsi_produk_3" id="deskripsi_produk" class="w-full  bg-transparent form-control" required></textarea>
+                        </td>
+                    </tr>
+                </div class="form-group">
+                <div>
+                    <tr>
+                        <td class="w-1/3 px-4 py-3">Gambar 3 Produk</td>
+                        <td class="form-group">
+                            <input type="file" name="gambar_produk_3" id="gambar_produk" class="w-full  bg-transparent form-control" multiple>
+                        </td>
+                    </tr>
+                </div> -->
+
+
+
+
 
 
             </table>
+
             <div class="termsx">
                 <p>
                     SYARAT DAN KETENTUAN
@@ -136,16 +226,21 @@
                 </p>
 
             </div>
-            
-
-
-
-            <div class="form-check w-1/2 flex justify-center items-center">
+            <div class="form-check w-full float-right">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                 <label class="form-check-label" for="exampleCheck1">Setuju</label>
             </div>
-            <button class="selanjutnya w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white flex justify-center items-center">Kirim</button>
+
+
+            <div>
+                <button class="selanjutnya w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white flex justify-center items-center">Kirim</button>
+            </div>
         </form>
+        @if(session('error'))
+
+        <p class="mt-3 bg-red-700 text-white px-8 py-2 rounded-lg"> {{ session('error')}}</p>
+
+        @endif
         <div class="mt-8 flex flex-col xs:items-center sm:flex-row sm:justify-between sm:items-start">
             <div class="relative w-1/2">
                 <p id="error-msg" class="@unless($errors->any())hidden @endunless absolute top-0 bg-red-700 text-white px-8 py-2 rounded-lg">“Semua data harus terisi dengan benar”</p>
@@ -165,7 +260,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     <script>
-     
         const _notificationModal = new Modal($('#notificationModal')[0]);
         $("#buat").submit(function(e) {
             e.preventDefault()
@@ -186,6 +280,7 @@
 
 
         })
+        
     </script>
 
 </div>

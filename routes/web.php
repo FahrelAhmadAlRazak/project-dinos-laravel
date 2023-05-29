@@ -41,16 +41,7 @@ Route::get('/logout', [App\Http\Controllers\AkunController::class,'logout']) ->n
 // Pengajuan Controller
 Route::get('/pengajuan', [App\Http\Controllers\PengajuanController::class,'pengajuan']) ->name('pengajuan');
 Route::get('/showpengajuan',[App\Http\Controllers\PengajuanController::class,'show_pengajuan'])->name('show_pengajuan');
-
-
-
-
-
-
-
-
-
-
+Route::get('/batal_pengajuan/{id}',[App\Http\Controllers\PengajuanController::class,'batal_pengajuan'])->name('batal_pengajuan');
 
 
 
@@ -72,19 +63,29 @@ Route::get('/buat_pengajuan_all-1', function () {
     return view('buatPengajuan-1');
 })->name('buat_pengajuan-1');
 
+
+// Fitur Pengiriman
+
+
 Route::get('/pengiriman', function () {
     return view('pengiriman');
 })->name('pengiriman');
 
-Route::get('/tambahPengiriman', [App\Http\Controllers\PengirimanController::class,'formPengiriman']);
-Route::post('/tambahPengiriman', [App\Http\Controllers\PengirimanController::class,'tambahPengiriman'])->name('tambahPengiriman');
+Route::get('/tambahPengiriman', [App\Http\Controllers\PengirimanController::class,'formPengiriman'])->name('tambahPengiriman');
+Route::post('/tambahPengirimanMitra', [App\Http\Controllers\PengirimanController::class,'tambahPengirimanMitra'])->name('tambahPengirimanMitra');
+Route::post('/tambahPengirimanAdmin', [App\Http\Controllers\PengirimanController::class,'tambahPengirimanAdmin'])->name('tambahPengirimanAdmin');
 
 Route::get('/lihatPengiriman', [App\Http\Controllers\PengirimanController::class,'lihatPengiriman'])->name('lihatPengiriman');
 Route::get('/lihatPengiriman/{pengiriman}', [App\Http\Controllers\PengirimanController::class,'detailPengiriman'])->name('detailPengiriman');
 
+
 Route::get('/statusPengiriman', function () {
     return view('statusPengiriman');
 })->name('statusPengiriman');
+
+
+
+
 
 Route::get('/dataPartner', function () {
     return view('dataPartner');
@@ -96,8 +97,8 @@ Route::get('/coba', function () {
 
 Route::get('/monitor', [App\Http\Controllers\MonitorController::class,'monitor'])->name('monitor');
 Route::get('/monitor/{monitor}', [App\Http\Controllers\MonitorController::class,'detailMonitor'])->name('detailMonitor');
-Route::get('/updatestock/{monitor}', [App\Http\Controllers\MonitorController::class,'updateStok'])->name('updateStock');
-Route::get('/tambahstock/{monitor}', [App\Http\Controllers\MonitorController::class,'tambahStok'])->name('tambahStock');
+Route::post('/updatestock/{monitor}', [App\Http\Controllers\MonitorController::class,'updateStock'])->name('updateStock');
+Route::post('/tambahstock/{monitor}', [App\Http\Controllers\MonitorController::class,'tambahStok'])->name('tambahStock');
 
 
 
@@ -211,6 +212,40 @@ Route::get('/partnerKurir',[App\Http\Controllers\AkunController::class,'showData
 Route::get('/detailPartnerMitra/{id}',[App\Http\Controllers\AkunController::class,'showDataAkunMitra'])->name('showDataAkunMitra');
 
 Route::get('/detailPartnerKurir/{id}',[App\Http\Controllers\AkunController::class,'showDataAkunKurir'])->name('showDataAkunKurir');
+
+
+// Fitur Artikel
+
+Route::get('/detailArtikel/{id}',[App\Http\Controllers\ArtikelController::class,'detail_artikel'])->name('detail_artikel');
+
+Route::get('/artikel',[App\Http\Controllers\ArtikelController::class,'show_artikel_all'])->name('artikel');
+
+Route::get('/tambahArtikel',[App\Http\Controllers\ArtikelController::class,'show_artikel'])->name('showTambahArtikel');
+
+Route::post('/tambahArtikel',[App\Http\Controllers\ArtikelController::class,'tambahArtikel'])->name('tambahArtikel');
+
+Route::get('/editArtikel/{id}',[App\Http\Controllers\ArtikelController::class,'edit_artikel'])->name('edit_artikel');
+
+Route::post('/editArtikel/{id}', [App\Http\Controllers\ArtikelController::class,'update_artikel'])->name('update_artikel');
+
+
+
+// Fitur Pencatatan
+
+Route::get('/pencatatan', function () {
+    return view('pencatatan');
+})->name('pencatatan');
+
+
+Route::get('/tambahPencatatan', [App\Http\Controllers\PencatatanController::class,'show_tambah_pencatatan'])->name('show_tambah_pencatatan');
+
+Route::post('/tambahPencatatan', [App\Http\Controllers\PencatatanController::class,'tambahPencatatan'])->name('tambahPencatatan');
+
+Route::get('/lihatPencatatan', function () {
+    return view('lihatPencatatan');
+})->name('lihatPencatatan');
+
+
 
 
 

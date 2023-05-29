@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('judul');
             $table->longText('isi');
             $table->string('gambar');
-            $table->foreignId('id_author');
+            $table->unsignedBigInteger('id_author');
+            $table->foreign('id_author')->references('id')->on('roles');
         });
     }
 

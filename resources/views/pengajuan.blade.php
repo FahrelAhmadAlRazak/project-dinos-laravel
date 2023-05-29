@@ -9,7 +9,7 @@
             
             <a href="{{ route('show_pengajuan') }}" class="lg:w-1/2 border">
                 <div>
-                    <h1 class="text-3xl font-medium mb-4" align="center">Data Pengajuan</h1>
+                    <h1 class="text-3xl font-medium mb-4 text-center">Data Pengajuan</h1>
                 </div>
             </a>
 
@@ -18,7 +18,7 @@
             @can('mitra')
             <a href="{{ route('buat_pengajuan') }}" class="lg:w-1/2 border">
                 <div>
-                    <h1 class="text-3xl font-medium mb-4" align="center"> Buat Pengajuan</h1>
+                    <h1 class="text-3xl font-medium mb-4 text-center"> Buat Pengajuan</h1>
                 </div>
             </a>
             @endcan

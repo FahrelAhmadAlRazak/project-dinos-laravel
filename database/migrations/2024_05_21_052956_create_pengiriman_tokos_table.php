@@ -15,10 +15,14 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->bigInteger('jumlah');
-            $table->foreignId('id_toko');
-            $table->foreignId('id_produk');
-            $table->foreignId('id_status_pengiriman');
-            $table->foreignId('id_kurir');
+            $table->unsignedBigInteger('id_toko');
+            $table->foreign('id_toko')->references('id')->on('tokos');
+            $table->unsignedBigInteger('id_produk');
+            $table->foreign('id_produk')->references('id')->on('produks');
+            $table->unsignedBigInteger('id_status_pengiriman');
+            $table->foreign('id_status_pengiriman')->references('id')->on('status_pengirimen');
+            $table->unsignedBigInteger('id_kurir');
+            $table->foreign('id_kurir')->references('id')->on('users');
         });
     }
 

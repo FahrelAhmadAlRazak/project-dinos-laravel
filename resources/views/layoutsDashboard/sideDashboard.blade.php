@@ -36,10 +36,26 @@
             </a>
             @endcan
            
+            @can('admin')
             <a href="{{ route('pengiriman') }}" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/truck.svg') }}" class="w-5" alt="">
                 <p class="text-white hidden lg:block">Pengiriman</p>
             </a>
+            @endcan
+
+            @can('mitra')
+            <a href="{{ route('pengiriman') }}" class="flex items-center gap-3 px-8">
+                <img src="{{ asset('images/truck.svg') }}" class="w-5" alt="">
+                <p class="text-white hidden lg:block">Pengiriman</p>
+            </a>
+            @endcan
+
+            @can('kurir')
+            <a href="{{ route('lihatPengiriman') }}" class="flex items-center gap-3 px-8">
+                <img src="{{ asset('images/truck.svg') }}" class="w-5" alt="">
+                <p class="text-white hidden lg:block">Pengiriman</p>
+            </a>
+            @endcan
 
             <!-- <a href="/test/pages/admin/" class="flex items-center gap-3 px-8">
                 <img src="images/monitor.svg" class="w-5" alt="">
@@ -59,21 +75,23 @@
             @endcan
 
             @can('mitra')
-            <a href="/test/pages/mitra/" class="flex items-center gap-3 px-8">
+            <a href="{{ route('pencatatan') }}" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/pencatatan.svg') }}" class="w-5" alt="">
                 <p class="text-white hidden lg:block">Pencatatan</p>
             </a>
             @endcan
 
+           
+
             @can('admin')
-            <a href="/test/pages/admin/" class="flex items-center gap-3 px-8">
+            <a href="{{ route('artikel') }}" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/blog.svg') }}" class="w-5" alt="">
                 <p class="text-white hidden lg:block">Artikel</p>
             </a>
             @endcan
             
             @can('mitra')
-            <a href="/test/pages/admin/" class="flex items-center gap-3 px-8">
+            <a href="{{ route('artikel') }}" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/blog.svg') }}" class="w-5" alt="">
                 <p class="text-white hidden lg:block">Artikel</p>
             </a>

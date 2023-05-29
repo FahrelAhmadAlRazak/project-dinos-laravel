@@ -7,9 +7,8 @@
         <table class="border w-full">
 
             <tr>
-                <td class="w-1/3 px-4 py-3">Id Mitra</td>
-                {{-- @dd($dataAkunKurir->id_kurir) --}}
-                <td>{{ $users->id_kurir }}</td>
+                <td class="w-1/3 px-4 py-3">Id Kurir</td>
+                <td>{{ $users->id }}</td>
 
             </tr>
 

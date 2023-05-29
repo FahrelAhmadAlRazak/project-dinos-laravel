@@ -88,6 +88,23 @@ abbr:where([title]) {
   text-decoration: underline dotted;
 }
 
+.text-dec-ul{
+  text-decoration: underline;
+}
+
+.text-italic{
+  font-style: italic;
+}
+
+.float-right{
+  float: right;
+}
+.float-left{
+  float: left;
+}
+
+
+
 /*
 Remove the default font size and weight for headings.
 */
@@ -547,6 +564,22 @@ video {
   z-index: 50;
 }
 
+.mr-1{
+  margin-right: 100px;
+}
+
+.mr-c{
+  margin-right: 150px;
+}
+
+.ml-1{
+  margin-left: 100px;
+}
+
+.ml--1{
+  margin-left: -100px;
+}
+
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -579,6 +612,10 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+.mt-10 {
+  margin-top:10rem;
 }
 
 .flex {
@@ -633,6 +670,24 @@ video {
   max-height: 100%;
 }
 
+.w-batal{
+  width: 10px;
+}
+
+.h-batal{
+  height: 10px;;
+}
+
+
+
+.w-0\/5{
+  width: 15%;
+}
+
+.w-1{
+  width: 100%;
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -653,8 +708,16 @@ video {
   width: 1.25rem;
 }
 
+.w-10 {
+  width: 2rem;
+}
+
 .w-full {
   width: 100%;
+}
+
+.w-50{
+  width: 50%;
 }
 
 .w-screen {
@@ -917,6 +980,11 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-green {
+  --tw-text-opacity: 1;
+  color: rgb(18 86 54 / var(--tw-text-opacity));
+}
+
 .text-yellow {
   --tw-text-opacity: 1;
   color: rgb(255 199 89 / var(--tw-text-opacity));
@@ -933,6 +1001,42 @@ video {
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+
+
+
+
+/* ukuran artikel */
+.art-size{
+  
+}
+
+.border-art{
+  border-bottom:1px solid #e6ecf0 ;
+}
+
+.img-art{
+  
+  
+
+}
+.img-art-content{
+  /* height: 398px; */
+  width: 210px;
+  padding: 10px;
+  margin-right: 50px;
+
+}
+.text-art-content{
+  padding: 10px;
+}
+
+.shorten {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 590px; /* Atur lebar yang sesuai */
+}
+
 
 a:hover {
   opacity: 0.9;
@@ -1012,4 +1116,40 @@ a:hover {
 .data-pengajuan table{
   border-collapse: collapse;
   width: 100%;
+}
+
+.input-art input{
+  width: 100%;
+}
+.input-art textarea{
+  width: 100%;
+  height: 233px;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+.input-pencatatan input{
+  width: 50%;
+}
+
+.batal{
+  padding: 5px;
+  filter: invert(100%) sepia(23%) saturate(288%) hue-rotate(182deg) brightness(108%) contrast(101%);
+}
+
+#success p{
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+#error p{
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.fade-out {
+  opacity: 0;
 }

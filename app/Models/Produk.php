@@ -20,4 +20,14 @@ class Produk extends Model
     {
         return $this->hasMany(Pengajuan::class, 'id_produk', 'id');
     }
+
+    public function tokoProduk()
+    {
+        return $this->hasMany(TokoProduk::class, 'id_produk', 'id');
+    }
+
+    public function pengirimanToko()
+    {
+        return $this->hasMany(PengiramanToko::class, 'id_produk', 'id');
+    }
 }
