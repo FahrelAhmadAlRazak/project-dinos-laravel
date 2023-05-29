@@ -89,7 +89,7 @@ class PengajuanController extends Controller
             'nomer_izin_usaha' => 'required',
             'notelp_perusahaan' => 'required',
             'email_perusahaan' => 'required',
-            'nama_produk' => 'required',
+            'nama' => 'required',
             'jumlah_produk' => 'required',
             'harga_produk' => 'required',
             'deskripsi_produk' => 'required',
@@ -117,7 +117,7 @@ class PengajuanController extends Controller
         // $gmbr3 = $gambar3->getClientOriginalName();
 
         $produk = Produk::create([
-            'nama' => $request->nama_produk,
+            'nama' => $request->nama,
             'harga' => $request->harga_produk,
             'jumlah' => $request->jumlah_produk,
             'deskripsi' => $request->deskripsi_produk,

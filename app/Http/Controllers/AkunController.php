@@ -68,7 +68,7 @@ class AkunController extends Controller
         ]);
         // @dd($credentials);
         if (Auth::attempt($credentials)) {
-            return redirect('/dashboard');
+            return redirect('/dashboard_all');
         }
         return redirect()->back()->with(['error' => 'Masukkan kembali Email dan password!']);
     }

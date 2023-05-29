@@ -68,8 +68,8 @@
                         <label for="id_produk"></label>
                             <select class="form-control w-50 mb-3" name="id_produk" id="id_produk">
                                 <option disabled value>Pilih Produk</option>
-                                @foreach($produk as $item)
-                                <option value="{{ $item->id }}"> {{ $item->nama }} </option>
+                                @foreach($pengirimanAdmin as $item)
+                                <option value="{{ $item->id }}"> {{ $item->produk->nama }} </option>
                                 @endforeach
                             </select>
                         </td>
@@ -86,6 +86,7 @@
                 </div>
             </table>
 
+            
             <button class="selanjutnya w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white flex justify-center items-center">Batal</button>
             <button class="selanjutnya w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white flex justify-center items-center" id="submit">Kirim</button>
         </form>

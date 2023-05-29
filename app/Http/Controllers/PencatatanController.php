@@ -44,7 +44,7 @@ class PencatatanController extends Controller
         $produk = Produk::join('total_penjualan', 'produk.id', '=', 'total_penjualan.id_produk')
                 ->select('nama.harga')
                 ->get();
-        dd($produk);
+        // dd($produk);
 
         Pencatatan::create([
             'pengeluaran_bahan_baku' => $request->pengeluaran_bahan_baku,
@@ -56,6 +56,8 @@ class PencatatanController extends Controller
             'total_pengeluaran' => strval($total_pengeluaran),
             'id_user' => auth()->user()->id,
         ]);
+
+        
 
         
 

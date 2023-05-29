@@ -81,6 +81,12 @@ class ArtikelController extends Controller
         
         return redirect('artikel');
     }
+
+    // public function atikel_dashboard(){
+    //     $artikel = Artikel::all();
+
+    //     return view('');
+    // }
     
     
 }

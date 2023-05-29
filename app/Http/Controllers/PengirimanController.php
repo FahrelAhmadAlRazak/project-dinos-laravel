@@ -12,6 +12,7 @@ use App\Models\TokoProduk;
 use App\Models\Toko;
 use App\Models\PengirimanAdmin;
 use App\Models\PengirimanToko;
+use Illuminate\Support\Facades\Gate;
 
 class PengirimanController extends Controller
 {
@@ -21,6 +22,17 @@ class PengirimanController extends Controller
         return view('lihatPengiriman', compact('pengiriman'));
     }
 
+    public function show_pengajuan()
+    {
+        if (Gate::allows('admin')) {
+            $pengajuan = Pengajuan::all();
+        } else {
+            $pengajuan = Pengajuan::whereRelation('User', 'id', auth()->user()->id)->get();
+        }
+        return view('dataPengajuan', compact('pengajuan'));
+    }
+    
+
     public function detailPengiriman(PengirimanAdmin $pengiriman) {
         // $pengiriman = PengirimanAdmin::all();
         // dd($pengiriman);
@@ -28,14 +40,17 @@ class PengirimanController extends Controller
     }
 
     public function formPengiriman()
-    {
-        $pengajuan = Pengajuan::where('id_user',auth()->user()->id)->get();
+    {   $pengirimanAdmin = PengirimanAdmin::all();
+        // $pengajuan = Pengajuan::where('id_user',auth()->user()->id)->get();
+        $pengajuan = Pengajuan::where('id_user', auth()->user()->id)
+                      ->where('id_status_pengajuan', 2)
+                      ->get();
         // dd($pengajuan);
         // $pengajuan = Pengajuan::all();
         $produk = Produk::all();
         $toko = Toko::all();
         $kantor = KantorAdmin::all();
-        return view('tambahPengiriman', compact('produk', 'kantor', 'toko','pengajuan'));
+        return view('tambahPengiriman', compact('produk', 'kantor', 'toko','pengajuan','pengirimanAdmin'));
     }
 
     public function tambahPengirimanMitra(Request $request) {
@@ -102,13 +117,36 @@ class PengirimanController extends Controller
 
     public function batal_pengiriman($id){
         $data = PengirimanToko::find($id);
+        dd($data);
         $status = $data->id_status_pengiriman;
+        dd($status);
 
         if ($status == 1) {
             $data->delete();
-            return redirect('showpengajuan')->with('Data telah dihapus');
+            return redirect()->back()->with(['success' => 'Data Berhasil dihapus']);
         }
 
-        return redirect('showpengajuan');
+        return redirect()->back()->with(['error' => 'Tidak dapat menghapus data']);
+    }
+
+    
+    public function belum_dikirim(Pengajuan $pengajuan)
+    {
+        $datapengajuan = Pengajuan::find($pengajuan->id);
+        $datapengajuan["id_status_pengajuan"] = 2;
+        $data = $datapengajuan->toArray();
+        Pengajuan::where('id', $datapengajuan->id)->update($data);
+        // dd($a);
+        return redirect('/detail_pengajuan/' . $datapengajuan->id);
+    }
+
+    public function tolakPengajuan(Pengajuan $pengajuan)
+    {
+        $datapengajuan = Pengajuan::find($pengajuan->id);
+        $datapengajuan["id_status_pengajuan"] = 3;
+        $data = $datapengajuan->toArray();
+        Pengajuan::where('id', $datapengajuan->id)->update($data);
+
+        return redirect('/detail_pengajuan/' . $datapengajuan->id);
     }
 }

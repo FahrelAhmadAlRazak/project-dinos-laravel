@@ -45,9 +45,12 @@ Route::get('/batal_pengajuan/{id}',[App\Http\Controllers\PengajuanController::cl
 
 
 
-Route::get('/dashboard_all', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/dashboard_all', [App\Http\Controllers\DashboardController::class,'artikel_dashboard']) ->name('dashboard');
+
+
+// Route::get('/dashboard_all', function () {
+//     return view('dashboard');
+// })->name('dashboard');
 
 
 Route::get('/akun_all', function () {
@@ -77,6 +80,8 @@ Route::post('/tambahPengirimanAdmin', [App\Http\Controllers\PengirimanController
 
 Route::get('/lihatPengiriman', [App\Http\Controllers\PengirimanController::class,'lihatPengiriman'])->name('lihatPengiriman');
 Route::get('/lihatPengiriman/{pengiriman}', [App\Http\Controllers\PengirimanController::class,'detailPengiriman'])->name('detailPengiriman');
+
+Route::get('/batal_pengiriman/{id}',[App\Http\Controllers\PengirimanController::class,'batal_pengiriman'])->name('batal_pengiriman');
 
 
 Route::get('/statusPengiriman', function () {

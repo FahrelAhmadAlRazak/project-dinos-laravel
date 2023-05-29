@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Artikel;
 use App\Models\dataKota;
 use App\Models\dataProvinsi;
 use Illuminate\Http\Request;
@@ -33,5 +34,13 @@ class DashboardController extends Controller
     public function pengajuan(){
         return view('pengajuan');
     }
+
+    public function artikel_dashboard()
+{
+    // $artikel = Artikel::where('id', 1)->first();
+    $artikel = Artikel::all();
+
+    return view('dashboard', compact('artikel'));
+}
     
 }

@@ -75,7 +75,10 @@
                     <tr>
                         <td class="w-1/3 px-4 py-3 mb-3">Nama Produk 1 yang Diajukan</td>
                         <td>
-                            <input type="text" name="nama_produk" id="nama_produk" class="w-full bg-transparent form-control" required>
+                            <input type="text" name="nama" id="nama_produk" class="w-full bg-transparent form-control @error('nama') is-invalid @enderror" required>
+                            @error('nama')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </td>
                     </tr>
                 </div>
@@ -280,7 +283,6 @@
 
 
         })
-        
     </script>
 
 </div>
