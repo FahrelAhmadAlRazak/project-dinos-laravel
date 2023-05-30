@@ -80,7 +80,6 @@ class PengajuanController extends Controller
 
     public function create(Request $request)
     {
-        // @dd($request);
         $request->validate([
             'nama_perusahaan' => 'required',
             'jalan' => 'required',
@@ -94,11 +93,9 @@ class PengajuanController extends Controller
             'harga_produk' => 'required',
             'deskripsi_produk' => 'required',
             'gambar_produk' => 'required'
-
         ]);
 
         $perusahaan = Perusahaan::create([
-            // 'id_perusahaan'=> $idPerusahaan,
             'nama' => $request->nama_perusahaan,
             'no_izin' => $request->nomer_izin_usaha,
             'no_telepon' => $request->notelp_perusahaan,
@@ -110,11 +107,7 @@ class PengajuanController extends Controller
         ]);
 
         $gambar = $request->gambar_produk;
-        // $gambar2 = $request->gambar_produk_2;
-        // $gambar3 = $request->gambar_produk_3;
         $gmbr = $gambar->getClientOriginalName();
-        // $gmbr2 = $gambar2->getClientOriginalName();
-        // $gmbr3 = $gambar3->getClientOriginalName();
 
         $produk = Produk::create([
             'nama' => $request->nama,
@@ -123,56 +116,53 @@ class PengajuanController extends Controller
             'deskripsi' => $request->deskripsi_produk,
             'gambar' => $gmbr,
 
-            // 'nama' => $request->nama_produk_2,
-            // 'harga' => $request->harga_produk_2,
-            // 'jumlah' => $request->jumlah_produk_2,
-            // 'deskripsi' => $request->deskripsi_produk_2,
-            // 'gambar' => $gmbr2,
-
-            // 'nama' => $request->nama_produk,
-            // 'harga' => $request->harga_produk,
-            // 'jumlah' => $request->jumlah_produk,
-            // 'deskripsi' => $request->deskripsi_produk,
-            // 'gambar' => $gmbr3,
-
             $gambar->move(public_path() . '/img', $gmbr),
-            // $gambar2->move(public_path() . '/img', $gmbr),
-            // $gambar3->move(public_path() . '/img', $gmbr),
-
-
         ]);
-        // $produkData = []; // Array untuk menyimpan data produk
-
-        // // Loop untuk mengambil data dari input form
-        // for ($i = 1; $i <= 3; $i++) {
-        //     $gambar = $request->file('gambar_produk_' . $i);
-        //     $gmbr = $gambar->getClientOriginalName();
-
-        //     // Tambahkan data produk ke array
-        //     $produkData[] = [
-        //         'nama' => $request->input('nama_produk_' . $i),
-        //         'harga' => $request->input('harga_produk_' . $i),
-        //         'jumlah' => $request->input('jumlah_produk_' . $i),
-        //         'deskripsi' => $request->input('deskripsi_produk_' . $i),
-        //         'gambar' => $gmbr,
-        //     ];
-
-        //     // Pindahkan gambar ke direktori tujuan
-        //     $gambar->move(public_path() . '/img', $gmbr);
-        // }
-        // dd($produkData);
-
-        // // Simpan data produk ke tabel produk
-        // Produk::insert($produkData);
-
-
+        
         Pengajuan::create([
             'id_perusahaan' => $perusahaan->id,
             'id_produk' => $produk->id,
             'id_status_pengajuan' => 1,
             'id_user' => auth()->user()->id,
         ]);
+        
+        if(isset($request->nama_produk_2) && isset($request->jumlah_produk_2) && isset($request->harga_produk_2) && isset($request->deskripsi_produk_2) && isset($request->gambar_produk_2)) {
+            $produk2 = Produk::create([
+                'nama' => $request->nama_produk_2,
+                'harga' => $request->harga_produk_2,
+                'jumlah' => $request->jumlah_produk_2,
+                'deskripsi' => $request->deskripsi_produk_2,
+                'gambar' => $request->gambar_produk_2->getClientOriginalName(),
+    
+                $request->gambar_produk_2->move(public_path() . '/img', $request->gambar_produk_2->getClientOriginalName()),
+            ]);
 
+            Pengajuan::create([
+                'id_perusahaan' => $perusahaan->id,
+                'id_produk' => $produk2->id,
+                'id_status_pengajuan' => 1,
+                'id_user' => auth()->user()->id,
+            ]);
+        };
+
+        if(isset($request->nama_produk_3) && isset($request->jumlah_produk_3) && isset($request->harga_produk_3) && isset($request->deskripsi_produk_3) && isset($request->gambar_produk_3)) {
+            $produk3 = Produk::create([
+                'nama' => $request->nama_produk_3,
+                'harga' => $request->harga_produk_3,
+                'jumlah' => $request->jumlah_produk_3,
+                'deskripsi' => $request->deskripsi_produk_3,
+                'gambar' => $request->gambar_produk_3->getClientOriginalName(),
+    
+                $request->gambar_produk_3->move(public_path() . '/img', $request->gambar_produk_3->getClientOriginalName()),
+            ]);
+
+            Pengajuan::create([
+                'id_perusahaan' => $perusahaan->id,
+                'id_produk' => $produk3->id,
+                'id_status_pengajuan' => 1,
+                'id_user' => auth()->user()->id,
+            ]);
+        };
         return redirect('showpengajuan')->withErrors(['error' => 'Semua data harus terisi dengan benar'])->with('success', 'Data berhasil ditambahkan');
 
     }

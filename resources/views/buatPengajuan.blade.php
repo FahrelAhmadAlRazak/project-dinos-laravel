@@ -116,11 +116,11 @@
                 </div>
 
                 <!-- Produk2 -->
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <tr>
                         <td class="w-1/3 px-4 py-3 mb-3">Nama 2 Produk yang Diajukan</td>
                         <td>
-                            <input type="text" name="nama_produk_2" id="nama_produk" class="w-full bg-transparent form-control" required>
+                            <input type="text" name="nama_produk_2" id="nama_produk" class="w-full bg-transparent form-control">
                         </td>
                     </tr>
                 </div>
@@ -128,7 +128,7 @@
                     <tr class="bg-slate-200">
                         <td class="w-1/3 px-4 py-3 mb-3">Jumlah 2 Produk yang Diajukan</td>
                         <td>
-                            <input type="number" name="jumlah_produk_2" id="jumlah_produk" class="w-full bg-transparent form-control" required>
+                            <input type="number" name="jumlah_produk_2" id="jumlah_produk" class="w-full bg-transparent form-control">
                         </td>
                     </tr>
                 </div>
@@ -136,7 +136,7 @@
                     <tr>
                         <td class="w-1/3 px-4 py-3">Harga 2 Produk yang Diajuakan</td>
                         <td class="form-group">
-                            <input type="text" name="harga_produk_2" id="harga_produk" class="w-full  bg-transparent form-control" required>
+                            <input type="text" name="harga_produk_2" id="harga_produk" class="w-full  bg-transparent form-control">
                         </td>
                     </tr>
                 </div>
@@ -144,7 +144,7 @@
                     <tr class="bg-slate-200">
                         <td class="w-1/3 px-4 py-3">Deskripsi 2 Produk yang Diajuakan</td>
                         <td class="form-group">
-                            <textarea type="text" name="deskripsi_produk_2" id="deskripsi_produk" class="w-full  bg-transparent form-control" required></textarea>
+                            <textarea type="text" name="deskripsi_produk_2" id="deskripsi_produk" class="w-full  bg-transparent form-control"></textarea>
                         </td>
                     </tr>
                 </div class="form-group">
@@ -155,14 +155,14 @@
                             <input type="file" name="gambar_produk_2" id="gambar_produk" class="w-full  bg-transparent form-control" multiple>
                         </td>
                     </tr>
-                </div> -->
+                </div>
 
                 <!-- Produk3 -->
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <tr>
                         <td class="w-1/3 px-4 py-3 mb-3">Nama Produk 3 yang Diajukan</td>
                         <td>
-                            <input type="text" name="nama_produk_3" id="nama_produk" class="w-full bg-transparent form-control" required>
+                            <input type="text" name="nama_produk_3" id="nama_produk" class="w-full bg-transparent form-control">
                         </td>
                     </tr>
                 </div>
@@ -170,7 +170,7 @@
                     <tr class="bg-slate-200">
                         <td class="w-1/3 px-4 py-3 mb-3">Jumlah Produk 3 yang Diajukan</td>
                         <td>
-                            <input type="number" name="jumlah_produk_3" id="jumlah_produk" class="w-full bg-transparent form-control" required>
+                            <input type="number" name="jumlah_produk_3" id="jumlah_produk" class="w-full bg-transparent form-control">
                         </td>
                     </tr>
                 </div>
@@ -178,7 +178,7 @@
                     <tr>
                         <td class="w-1/3 px-4 py-3">Harga Produk 3 yang Diajuakan</td>
                         <td class="form-group">
-                            <input type="text" name="harga_produk_3" id="harga_produk" class="w-full  bg-transparent form-control" required>
+                            <input type="text" name="harga_produk_3" id="harga_produk" class="w-full  bg-transparent form-control">
                         </td>
                     </tr>
                 </div>
@@ -186,7 +186,7 @@
                     <tr class="bg-slate-200">
                         <td class="w-1/3 px-4 py-3">Deskripsi Produk 3 yang Diajuakan</td>
                         <td class="form-group">
-                            <textarea type="text" name="deskripsi_produk_3" id="deskripsi_produk" class="w-full  bg-transparent form-control" required></textarea>
+                            <textarea type="text" name="deskripsi_produk_3" id="deskripsi_produk" class="w-full  bg-transparent form-control"></textarea>
                         </td>
                     </tr>
                 </div class="form-group">
@@ -197,7 +197,7 @@
                             <input type="file" name="gambar_produk_3" id="gambar_produk" class="w-full  bg-transparent form-control" multiple>
                         </td>
                     </tr>
-                </div> -->
+                </div>
 
 
 

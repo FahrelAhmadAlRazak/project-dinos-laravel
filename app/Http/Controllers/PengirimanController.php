@@ -16,28 +16,63 @@ use Illuminate\Support\Facades\Gate;
 
 class PengirimanController extends Controller
 {
-    public function lihatPengiriman() {
-        $pengiriman = PengirimanAdmin::all();
-        // dd($kurir);
-        return view('lihatPengiriman', compact('pengiriman'));
-    }
+    // public function lihatPengiriman() {
+    //     $pengiriman = PengirimanAdmin::all();
+    //     // dd($kurir);
+    //     return view('lihatPengiriman', compact('pengiriman'));
+    // }
 
-    public function show_pengajuan()
+    public function lihatPengiriman()
     {
         if (Gate::allows('admin')) {
-            $pengajuan = Pengajuan::all();
-        } else {
-            $pengajuan = Pengajuan::whereRelation('User', 'id', auth()->user()->id)->get();
+            $pengiriman = PengirimanToko::all();
+        } elseif(Gate::allows('mitra')) {
+            $pengiriman = PengirimanAdmin::all();
+            
+        } else{
+            
+            $pengiriman = Pengajuan::whereRelation('User', 'id', auth()->user()->id)->get();
         }
-        return view('dataPengajuan', compact('pengajuan'));
+        return view('lihatPengiriman', compact('pengiriman'));
     }
     
 
-    public function detailPengiriman(PengirimanAdmin $pengiriman) {
-        // $pengiriman = PengirimanAdmin::all();
-        // dd($pengiriman);
+    // public function detailPengirimanAdmin(PengirimanToko $pengiriman) {
+    //     // $pengiriman = PengirimanAdmin::all();
+    //     // dd($pengiriman);
+    //     // $pengiriman = PengirimanAdmin::all() && PengirimanToko::all();
+    //     return view('detailPengiriman', compact('pengiriman'));
+    // }
+
+    public function detailPengiriman() {
+        $pengirimanAdmin = PengirimanAdmin::select('id', 'created_at', 'id_kantor_admin', 'id_produk','id_status_pengiriman','id_kurir')->get();
+    
+        $pengirimanToko = PengirimanToko::select('id', 'created_at', 'jumlah','id_toko','id_produk','id_status_pengiriman','id_kurir')->get();
+    
+        $pengiriman = $pengirimanAdmin->concat($pengirimanToko);
+    
         return view('detailPengiriman', compact('pengiriman'));
     }
+
+    // public function detailPengirimanAdmin() {
+    //     $pengirimanAdmin = PengirimanAdmin::select('id', 'nama', 'alamat')
+    //         ->where('status', '!=', 'selesai')
+    //         ->get();
+    
+    //     $pengirimanToko = PengirimanToko::select('id', 'nama', 'alamat')
+    //         ->where('status', '!=', 'selesai')
+    //         ->get();
+    
+    //     $pengiriman = $pengirimanAdmin->union($pengirimanToko);
+    
+    //     return view('detailPengiriman', compact('pengiriman'));
+    // }
+
+    // public function detailPengirimanMitra(PengirimanToko $pengiriman) {
+    //     // $pengiriman = PengirimanAdmin::all();
+    //     // dd($pengiriman);
+    //     return view('detailPengiriman', compact('pengiriman'));
+    // }
 
     public function formPengiriman()
     {   $pengirimanAdmin = PengirimanAdmin::all();
@@ -70,10 +105,11 @@ class PengirimanController extends Controller
         $pengiriman->save();
 
         $pengajuan = Pengajuan::where('id_user',auth()->user()->id)->get();
+        $pengirimanAdmin = PengirimanAdmin::all();
         $produk = Produk::all();
         $toko = Toko::all();
         $kantor = KantorAdmin::all();
-        return view('tambahPengiriman', compact('produk', 'kantor', 'toko','pengajuan'))->with('message', 'sukses menambah pengiriman baru');
+        return view('tambahPengiriman', compact('produk', 'kantor', 'toko','pengajuan','pengirimanAdmin'))->with('message', 'sukses menambah pengiriman baru');
     }
 
     public function tambahPengirimanAdmin(Request $request) {
@@ -116,10 +152,10 @@ class PengirimanController extends Controller
     }
 
     public function batal_pengiriman($id){
-        $data = PengirimanToko::find($id);
-        dd($data);
+        $data = PengirimanAdmin::find($id);
+        // dd($data);
         $status = $data->id_status_pengiriman;
-        dd($status);
+        // dd($status);
 
         if ($status == 1) {
             $data->delete();
@@ -130,17 +166,27 @@ class PengirimanController extends Controller
     }
 
     
-    public function belum_dikirim(Pengajuan $pengajuan)
+    // public function belum_dikirim(Pengajuan $pengajuan)
+    // {
+    //     $datapengajuan = Pengajuan::find($pengajuan->id);
+    //     $datapengajuan["id_status_pengajuan"] = 2;
+    //     $data = $datapengajuan->toArray();
+    //     Pengajuan::where('id', $datapengajuan->id)->update($data);
+    //     // dd($a);
+    //     return redirect('/detail_pengajuan/' . $datapengajuan->id);
+    // }
+
+    public function sedang_dikirim(Pengajuan $pengajuan)
     {
         $datapengajuan = Pengajuan::find($pengajuan->id);
-        $datapengajuan["id_status_pengajuan"] = 2;
+        $datapengajuan["id_status_pengajuan"] = 3;
         $data = $datapengajuan->toArray();
         Pengajuan::where('id', $datapengajuan->id)->update($data);
-        // dd($a);
+
         return redirect('/detail_pengajuan/' . $datapengajuan->id);
     }
 
-    public function tolakPengajuan(Pengajuan $pengajuan)
+    public function sudah_dikirim(Pengajuan $pengajuan)
     {
         $datapengajuan = Pengajuan::find($pengajuan->id);
         $datapengajuan["id_status_pengajuan"] = 3;

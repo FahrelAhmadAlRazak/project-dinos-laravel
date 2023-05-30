@@ -3,13 +3,7 @@
             <div class="flex items-center gap-3 mx-4">
                 <img src="{{ asset('images/user.svg') }}" class="h-12" alt="">
                 <p class="text-white hidden lg:block">{{ auth()->user()->nama }}</p>
-                {{-- @if(Str::length(Auth::guard('dataAkunAdmin')->user()) > 0)
-                <p class="text-white hidden lg:block">{{ Auth::guard('dataAkunAdmin')->user()->nama }}</p>
-                @elseif(Str::length(Auth::guard('dataAkunMitra')->user()) > 0)
-                <p class="text-white hidden lg:block">{{ Auth::guard('dataAkunMitra')->user()->nama }}</p>
-                @elseif(Str::length(Auth::guard('dataAkunKurir')->user()) > 0)
-                <p class="text-white hidden lg:block">{{ Auth::guard('dataAkunKurir')->user()->nama }}</p>
-                @endif --}}
+                
 
             </div>
             <hr>

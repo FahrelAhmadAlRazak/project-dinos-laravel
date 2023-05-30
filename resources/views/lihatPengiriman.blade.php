@@ -7,12 +7,22 @@
             <table class="data-pengajuan border w-full overflow-x-scroll">
                 <tr>
                     <th>Tanggal</th>
+                    @can('mitra')
                     <th>Kantor Tujuan</th>
+                    @endcan
+                    @can('admin')
+                    <th>Alamat Toko</th>
+                    @endcan
                     <th>Nama Produk</th>
                     <th>Jumlah Produk</th>
                     <th>Harga</th>
                     <th>Status</th>
+                    @can('admin')
                     <th>Aksi</th>
+                    @endcan
+                    @can('mitra')
+                    <th>Aksi</th>
+                    @endcan
                 </tr>
 
 
@@ -20,12 +30,22 @@
                 {{-- @dd($item->dataProduk) --}}
                 <tr class="bg-slate-200">
                     <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->created_at }}</a></td>
+                    @can('mitra')
                     <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->kantorAdmin->nama }}</a></td>
+                    @endcan
+                    @can('admin')
+                    <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->toko->nama }}</a></td>
+                    @endcan
                     <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->produk->nama }}</a></td>
                     <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->produk->jumlah . ' pcs' }}</a></td>
                     <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->produk->harga }}</a></td>
                     <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->statusPengiriman->status }}</a></td>
+                    @can('admin')
                     <td class="text-center w-0/5"><img src="{{ asset('images/delete.svg') }}" data-modal-target="batal-{{ $item->id }}" data-modal-toggle="batal-{{ $item->id }}" class="batal bg-admin-secondary hover:opacity-90 rounded-lg w-10 mx-auto" role="button" alt=""></td>
+                    @endcan
+                    @can('mitra')
+                    <td class="text-center w-0/5"><img src="{{ asset('images/delete.svg') }}" data-modal-target="batal-{{ $item->id }}" data-modal-toggle="batal-{{ $item->id }}" class="batal bg-admin-secondary hover:opacity-90 rounded-lg w-10 mx-auto" role="button" alt=""></td>
+                    @endcan
                 </tr>
                 @endforeach
 

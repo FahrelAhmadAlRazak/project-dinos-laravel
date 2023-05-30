@@ -78,8 +78,10 @@ Route::get('/tambahPengiriman', [App\Http\Controllers\PengirimanController::clas
 Route::post('/tambahPengirimanMitra', [App\Http\Controllers\PengirimanController::class,'tambahPengirimanMitra'])->name('tambahPengirimanMitra');
 Route::post('/tambahPengirimanAdmin', [App\Http\Controllers\PengirimanController::class,'tambahPengirimanAdmin'])->name('tambahPengirimanAdmin');
 
-Route::get('/lihatPengiriman', [App\Http\Controllers\PengirimanController::class,'lihatPengiriman'])->name('lihatPengiriman');
-Route::get('/lihatPengiriman/{pengiriman}', [App\Http\Controllers\PengirimanController::class,'detailPengiriman'])->name('detailPengiriman');
+Route::get('/lihatPengiriman_all', [App\Http\Controllers\PengirimanController::class,'lihatPengiriman'])->name('lihatPengiriman');
+// Route::get('/lihatPengiriman/{pengirimanAdmin}/{pengirimanMitra}', [App\Http\Controllers\PengirimanController::class,'detailPengirimanAdmin'])->name('detailPengiriman');
+// Route::get('/lihatPengiriman/{pengiriman}', [App\Http\Controllers\PengirimanController::class,'detailPengirimanMitra'])->name('detailPengiriman');
+Route::get('/lihatPengiriman', [App\Http\Controllers\PengirimanController::class,'detailPengiriman'])->name('detailPengiriman');
 
 Route::get('/batal_pengiriman/{id}',[App\Http\Controllers\PengirimanController::class,'batal_pengiriman'])->name('batal_pengiriman');
 
@@ -246,9 +248,16 @@ Route::get('/tambahPencatatan', [App\Http\Controllers\PencatatanController::clas
 
 Route::post('/tambahPencatatan', [App\Http\Controllers\PencatatanController::class,'tambahPencatatan'])->name('tambahPencatatan');
 
-Route::get('/lihatPencatatan', function () {
-    return view('lihatPencatatan');
-})->name('lihatPencatatan');
+
+Route::get('/lihatPencatatan', [App\Http\Controllers\PencatatanController::class,'lihatPencatatan'])->name('lihatPencatatan');
+Route::get('/detailPencatatan/{id}', [App\Http\Controllers\PencatatanController::class,'detailPencatatan'])->name('detailPencatatan');
+
+
+// Route::get('/lihatPencatatan', function () {
+//     return view('lihatPencatatan');
+// })->name('lihatPencatatan');
+
+
 
 
 

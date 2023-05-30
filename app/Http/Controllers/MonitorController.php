@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengajuan;
 use App\Models\PengirimanToko;
 use Illuminate\Http\Request;
 
 use App\Models\TokoProduk;
+use Illuminate\Support\Facades\Gate;
 
 class MonitorController extends Controller
 {
@@ -13,6 +15,14 @@ class MonitorController extends Controller
         $monitor = TokoProduk::all();
         // dd($kurir);
         return view('monitor', compact('monitor'));
+
+        // if (Gate::allows('admin')) {
+        //     $monitor = TokoProduk::all();
+        // } else {
+        //     $monitor = Pengajuan::whereRelation('User', 'id', auth()->user()->id)->get();
+
+        // }
+        // return view('monitor', compact('monitor'));
     }
 
     public function detailMonitor(TokoProduk $monitor) {

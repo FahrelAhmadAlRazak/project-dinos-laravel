@@ -12,7 +12,27 @@
                     <th>Pengeluaran Transportasi</th>
                     <th>Pengeluaran Gaji Karyawan</th>
                     <th>Pengeluaran Lain-Lain</th>
+                    <th>Total Pengeluaran</th>
+                    <th>Pemasukan</th>
+                  
+
+               
+                @foreach ($pencatatan as $item)
+                <tr class="bg-slate-200">
+                    <td class="text-center"><a href="/detailPencatatan/{{ $item->id }}">{{ $item->pengeluaran_bahan_baku }}</a></td>
+                    <td class="text-center"><a href="/detailPencatatan/{{ $item->id }}">{{ $item->pengeluaran_produksi }}</a></td>
+                    <td class="text-center"><a href="/detailPencatatan/{{ $item->id }}">{{ $item->pengeluaran_kemasan }}</a></td>
+                    <td class="text-center"><a href="/detailPencatatan/{{ $item->id }}">{{ $item->pengeluaran_transportasi }}</a></td>
+                    <td class="text-center"><a href="/detailPencatatan/{{ $item->id }}">{{ $item->pengeluaran_gaji }}</a></td>
+                    <td class="text-center"><a href="/detailPencatatan/{{ $item->id }}">{{ $item->pengeluaran_lainnya }}</a></td>
+                    <td class="text-center"><a href="/detailPencatatan/{{ $item->id }}">{{ $item->total_pengeluaran }}</a></td>
+                    <td class="text-center"><a href="/detailPencatatan/{{ $item->id }}">{{ $item->pemasukan }}</a></td>
+            
                 </tr>
+                @endforeach
+               
+
+
             </table>
         </div>
 

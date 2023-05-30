@@ -1,5 +1,6 @@
 @extends('layoutsDashboard.masterDashboard')
 @section('content')
+@dd($pengiriman)
 <div id="content" class="pt-24 px-2 py-4 flex-grow h-screen">
     <div class="my-2 px-8 pt-6 pb-4 shadow w-full h-full overflow-y-scroll">
         <h1 class="text-3xl font-medium mb-4">Detail Pengiriman</h1>
@@ -13,6 +14,7 @@
                 <!-- <td>: admin@mail.com</td> -->
             </tr>
 
+            @can('mitra')
             <tr class="bg-slate-200">
                 <td class="w-1/3 px-4 py-3">Kantor Admin</td>
 
@@ -20,6 +22,19 @@
 
                 <!-- <td>: 082345678901</td> -->
             </tr>
+            @endcan
+
+            @can('admin')
+            <tr class="bg-slate-200">
+                <td class="w-1/3 px-4 py-3">Toko</td>
+
+                <td>{{ $pengiriman->toko->nama}}</td>
+
+                <!-- <td>: 082345678901</td> -->
+            </tr>
+            @endcan
+            
+            @can('mitra')
             <tr>
                 <td class="w-1/3 px-4 py-3">Alamat Kantor</td>
 
@@ -27,6 +42,16 @@
 
                 <!-- <td>: 2000-01-01</td> -->
             </tr>
+            @endcan
+            @can('admin')
+            <tr>
+                <td class="w-1/3 px-4 py-3">Alamat toko</td>
+
+                <td>{{$pengiriman->toko->jalan}}, {{ $pengiriman->toko->kota->nama}}, {{ $pengiriman->toko->provinsi->nama}}</td>
+
+                <!-- <td>: 2000-01-01</td> -->
+            </tr>
+            @endcan
             <tr class="bg-slate-200">
                 <td class="w-1/3 px-4 py-3">Nama Produk</td>
 
