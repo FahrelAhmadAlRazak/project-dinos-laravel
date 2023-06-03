@@ -81,7 +81,7 @@
                         <td class="w-1/3 px-4 py-3">Jumlah</td>
                         <td>
                             <label for="jumlah"></label>
-                            <input type="text" name="jumlah" id="jumlah" class="form-control w-full  bg-transparent" required>
+                            <input type="text" class="form-control @error('jumlah') is-invalid @enderror" name="jumlah" id="jumlah" class="form-control w-full  bg-transparent">
                         </td>
                     </tr>
                 </div>
@@ -91,6 +91,19 @@
             <a href="{{ route('pengiriman') }}" class="selanjutnya w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white flex justify-center items-center">kembali</a>
             <button class="selanjutnya w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white flex justify-center items-center" id="submit">Kirim</button>
         </form>
+        <!-- Tampilkan pesan kesalahan -->
+        @if ($errors->has('error'))
+        <div class="alert alert-danger">
+            {{ $errors->first('error') }}
+        </div>
+        @endif
+
+        <!-- Tampilkan pesan keberhasilan -->
+        @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+        @endif
         @endcan
 
         {{-- <a href="{{ route('buat_pengajuan-1') }}" class=" selanjutnya w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white flex justify-center items-center " id="logoutBtn">Selanjutnya</a> --}}

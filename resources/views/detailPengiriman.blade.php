@@ -15,16 +15,14 @@
                 <!-- <td>: admin@mail.com</td> -->
             </tr>
             @can('kurir')
-
-            <tr class="bg-slate-200">
-                <td class="w-1/3 px-4 py-3">Alamat</td>
-                @if(isset($pengiriman->kantorAdmin))
-                <td>{{ $pengiriman->kantorAdmin->nama}}</td>
-                @else
-                <td>{{ $pengiriman->toko->nama}}</td>
-                @endif
-            </tr>
-
+                <tr class="bg-slate-200">
+                    <td class="w-1/3 px-4 py-3">Alamat</td>
+                    @if ($pengiriman instanceof \App\Models\PengirimanAdmin)
+                        <td>{{ $pengiriman->kantorAdmin->nama }}</td>
+                    @elseif ($pengiriman instanceof \App\Models\PengirimanToko)
+                        <td>{{ $pengiriman->toko->nama }}</td>
+                    @endif
+                </tr>
             @endcan
 
 

@@ -178,7 +178,16 @@ class PengirimanController extends Controller
         $produk = Produk::all();
         $toko = Toko::all();
         $kantor = KantorAdmin::all();
-        return view('tambahPengiriman', compact('produk', 'kantor', 'toko','pengirimanAdmin'))->with('message', 'sukses menambah pengiriman baru');
+        // return view('tambahPengiriman', compact('produk', 'kantor', 'toko','pengirimanAdmin'))->with('message', 'sukses menambah pengiriman baru');
+        return view('tambahPengiriman', [
+            'produk' => $produk,
+            'kantor' => $kantor,
+            'toko' => $toko,
+            'pengirimanAdmin' => $pengirimanAdmin,
+            'error' => 'Semua data harus terisi dengan benar'
+        ])->with('message', 'Sukses menambah pengiriman baru');
+        
+
     }
 
     //     public function batal_pengiriman($id)
@@ -208,17 +217,46 @@ class PengirimanController extends Controller
 
     public function batal_pengiriman($id)
     {
-        if (auth()->user()->role->role == "mitra" ) {
+        if (Gate::allows('mitra')) {
+            $pengirimanAdmin = PengirimanAdmin::find($id);
+            if ($pengirimanAdmin->id_status_pengiriman == 1) {
+                $pengirimanAdmin->delete();
+            } else {
+                return redirect()->back();
+            }
+        } elseif (Gate::allows('admin')) {
+            $pengirimanToko = PengirimanToko::find($id);
+            if ($pengirimanToko->id_status_pengiriman == 1) {
+                $id_produk = $pengirimanToko->id_produk;
+                $id_toko = $pengirimanToko->id_toko;
+
+                $pengirimanToko->delete();
+
+                $tokoProduk = TokoProduk::where('id_produk', $id_produk)
+                ->where('id_toko', $id_toko)
+                    ->first();
+
+                if ($tokoProduk) {
+                    $tokoProduk->delete();
+                }
+            } else {
+                return redirect()->back();
+            }
+        }
+        return redirect()->back();
+    }
+
+        // if (auth()->user()->role->role == "mitra" ) {
             // CARI DATA PENGIRIMAN ADMIN DENGAN ID
             // CEK STATUS PENGIRIMAN
                 // hapus data pengiriman admin
-        } else if (auth()->user()->role->role == "admin") {
+        // } else if (auth()->user()->role->role == "admin") {
             // CARI DATA PENGIRIMAN TOKO DENGAN ID
             // CEK STATUS PENGIRIMAN
                 // HAPUS DATA PENGIRIMAN TOKO
                 // CARI DATA TOKO PRODUKS YANG MEMILIKI ID_PRODUK dan ID_TOKO YANG SAMA
                 // HAPUS DATA TOKO PRODUKS
-        }
+        // }
 
 
         
@@ -243,7 +281,6 @@ class PengirimanController extends Controller
         //     }
         //     return redirect()->back()->with(['error' => 'Pengiriman tidak ditemukan']);
         // }
-    }
 
     // public function batal_pengiriman1($id)
     // {

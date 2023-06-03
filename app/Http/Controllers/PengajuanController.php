@@ -178,7 +178,7 @@ class PengajuanController extends Controller
         }
 
         // return redirect('showpengajuan');
-        return redirect()->back()->with(['error' => 'Tidak dapat menghapus data']);
+        return redirect()->back()->with(['error' => 'Tidak dapat menghapus pengajuan']);
     }
     public function setujuiPengajuan(Pengajuan $pengajuan)
     {

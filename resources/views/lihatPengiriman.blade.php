@@ -43,6 +43,17 @@
                     @can('mitra')
                     <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->produk->jumlah.' pcs' }}</a></td>
                     @endcan
+                    @can('kurir')
+                    @if ($item instanceof \App\Models\PengirimanAdmin)
+                        <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->produk->jumlah.' pcs' }}</a></td>
+                    @elseif ($item instanceof \App\Models\PengirimanToko)
+                        <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->jumlah.' pcs' }}</a></td>
+                    @endif
+                    @endcan
+                    {{-- @can('kurir')
+                    <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->jumlah.' pcs' }}</a></td>
+                    @endcan --}}
+
                     <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->produk->harga }}</a></td>
                     <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->statusPengiriman->status }}</a></td>
                     @can('admin')
