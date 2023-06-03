@@ -37,7 +37,12 @@
                     <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->toko->nama }}</a></td>
                     @endcan
                     <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->produk->nama }}</a></td>
-                    <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->produk->jumlah . ' pcs' }}</a></td>
+                    @can('admin')
+                    <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->jumlah.' pcs' }}</a></td>
+                    @endcan
+                    @can('mitra')
+                    <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->produk->jumlah.' pcs' }}</a></td>
+                    @endcan
                     <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->produk->harga }}</a></td>
                     <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->statusPengiriman->status }}</a></td>
                     @can('admin')

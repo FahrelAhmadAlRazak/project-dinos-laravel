@@ -1,6 +1,7 @@
 @extends('layoutsDashboard.masterDashboard')
 @section('content')
-@dd($pengiriman)
+
+
 <div id="content" class="pt-24 px-2 py-4 flex-grow h-screen">
     <div class="my-2 px-8 pt-6 pb-4 shadow w-full h-full overflow-y-scroll">
         <h1 class="text-3xl font-medium mb-4">Detail Pengiriman</h1>
@@ -13,6 +14,19 @@
 
                 <!-- <td>: admin@mail.com</td> -->
             </tr>
+            @can('kurir')
+
+            <tr class="bg-slate-200">
+                <td class="w-1/3 px-4 py-3">Alamat</td>
+                @if(isset($pengiriman->kantorAdmin))
+                <td>{{ $pengiriman->kantorAdmin->nama}}</td>
+                @else
+                <td>{{ $pengiriman->toko->nama}}</td>
+                @endif
+            </tr>
+
+            @endcan
+
 
             @can('mitra')
             <tr class="bg-slate-200">
@@ -33,7 +47,7 @@
                 <!-- <td>: 082345678901</td> -->
             </tr>
             @endcan
-            
+
             @can('mitra')
             <tr>
                 <td class="w-1/3 px-4 py-3">Alamat Kantor</td>
@@ -100,15 +114,15 @@
 
         <div id="statu_pengiriman" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="bg-white relative px-8 py-6 w-1/2 max-w-2xl max-h-full flex flex-col items-center">
-                <a >
-                    <p style="position: absolute; top: 4px; right: 16px; cursor: pointer;">X</p>
+                <a>
+                    <p data-modal-target="statu_pengiriman" data-modal-toggle="statu_pengiriman" style="position: absolute; top: 4px; right: 16px; cursor: pointer;">X</p>
                 </a>
-                <h2 class="text-2xl font-bold mb-4">Ubah Status Pengajuan</h2>
+                <h2 class="text-2xl font-bold mb-4">Ubah Status Pengiriman</h2>
                 <!-- <h3 class="text-xl mb-6">"Batalkan Pengajuan ?"</h3> -->
                 <div class="flex gap-4 w-2/3">
-                    <a id="iya" class="w-1/2 bg-green-700 text-white text-center py-2 rounded-lg" href="#">Belum dikirm</a>
-                    <a id="iya" class="w-1/2 bg-green-700 text-white text-center py-2 rounded-lg" href="#">Sedang dikirim</a>
-                    <a id="iya" class="w-1/2 bg-green-700 text-white text-center py-2 rounded-lg" href="#">Sudah dikirim</a>
+                
+                    <a id="iya" class="w-1/2 bg-green-700 text-white text-center py-2 rounded-lg" href="/sedang_dikirim/{{ $pengiriman->id }}">Sedang dikirim</a>
+                    <a id="iya" class="w-1/2 bg-green-700 text-white text-center py-2 rounded-lg" href="/sudah_dikirim/{{ $pengiriman->id }}">Sudah dikirim</a>
                     <!-- <button class="w-1/2 bg-red-700 text-white py-2" id="noLogout" data-modal-target="statu_pengiriman" data-modal-toggle="statu_pengiriman">Tidak</button> -->
                 </div>
             </div>

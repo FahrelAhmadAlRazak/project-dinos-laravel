@@ -18,7 +18,8 @@ class PencatatanController extends Controller
     }
     public function lihatPencatatan()
     {
-        $pencatatan = Pencatatan::all();
+        $pencatatan = Pencatatan::where('id_user', auth()->user()->id)->get();
+
         // $id = Pencatatan::find($id);
 
         return view('lihatPencatatan',compact('pencatatan'));

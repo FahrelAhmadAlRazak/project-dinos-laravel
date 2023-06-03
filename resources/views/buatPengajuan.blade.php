@@ -10,7 +10,7 @@
                     <tr class="bg-slate-200">
                         <td class="w-1/3 px-4 py-3 mb-3">Nama Usaha</td>
                         <td>
-                            <input type="text" name="nama_perusahaan" id="nama_perusahaan" class="w-full bg-transparent form-control" required>
+                            <input type="text" name="nama_perusahaan" id="nama_perusahaan" class="w-full bg-transparent form-control">
                         </td>
                     </tr>
                 </div>
@@ -21,7 +21,7 @@
                     <td class="w-1/3 px-4 py-3 mb-3">Alamat Tempat Usaha</td>
                     <td>
                         <label for="exampleFormControlSelect2">jalan</label>
-                        <input type="text" name="jalan" id="jalan" class="w-50 mb-3  bg-transparent form-control" required>
+                        <input type="text" name="jalan" id="jalan" class="w-50 mb-3  bg-transparent form-control" >
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Provinsi</label>
                             <select class="form-control w-50" name="id_provinsi" id="id_provinsi" s>
@@ -49,7 +49,7 @@
                     <tr class="bg-slate-200">
                         <td class="w-1/3 px-4 py-3">Nomor Izin Usaha</td>
                         <td class="form-group">
-                            <input type="text" name="nomer_izin_usaha" id="nomer_izin_usaha" class="w-full  bg-transparent form-control" required>
+                            <input type="text" name="nomer_izin_usaha" id="nomer_izin_usaha" class="w-full  bg-transparent form-control">
                         </td>
                     </tr>
                 </div>
@@ -57,7 +57,7 @@
                     <tr>
                         <td class="w-1/3 px-4 py-3">Nomor Telepon Perusahaan</td>
                         <td class="form-group">
-                            <input type="text" name="notelp_perusahaan" id="notelp_perusahaan" class="w-full  bg-transparent form-control" required>
+                            <input type="text" name="notelp_perusahaan" id="notelp_perusahaan" class="w-full  bg-transparent form-control" >
                         </td>
                     </tr>
                 </div class="form-group">
@@ -65,7 +65,7 @@
                     <tr class="bg-slate-200">
                         <td class="w-1/3 px-4 py-3">Email Perusahaan</td>
                         <td class="form-group">
-                            <input type="email" name="email_perusahaan" id="email_perusahaan" class="w-full  bg-transparent form-control" required>
+                            <input type="email" name="email_perusahaan" id="email_perusahaan" class="w-full  bg-transparent form-control" >
                         </td>
                     </tr>
                 </div>
@@ -75,7 +75,7 @@
                     <tr>
                         <td class="w-1/3 px-4 py-3 mb-3">Nama Produk 1 yang Diajukan</td>
                         <td>
-                            <input type="text" name="nama" id="nama_produk" class="w-full bg-transparent form-control @error('nama') is-invalid @enderror" required>
+                            <input type="text" name="nama" id="nama_produk" class="w-full bg-transparent form-control @error('nama') is-invalid @enderror" >
                             @error('nama')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -86,7 +86,7 @@
                     <tr class="bg-slate-200">
                         <td class="w-1/3 px-4 py-3 mb-3">Jumlah Produk 1 yang Diajukan</td>
                         <td>
-                            <input type="number" name="jumlah_produk" id="jumlah_produk" class="w-full bg-transparent form-control" required>
+                            <input type="number" name="jumlah_produk" id="jumlah_produk" class="w-full bg-transparent form-control">
                         </td>
                     </tr>
                 </div>
@@ -94,7 +94,7 @@
                     <tr>
                         <td class="w-1/3 px-4 py-3">Harga Produk 1 yang Diajuakan</td>
                         <td class="form-group">
-                            <input type="text" name="harga_produk" id="harga_produk" class="w-full  bg-transparent form-control" required>
+                            <input type="text" name="harga_produk" id="harga_produk" class="w-full  bg-transparent form-control" >
                         </td>
                     </tr>
                 </div>
@@ -102,7 +102,7 @@
                     <tr class="bg-slate-200">
                         <td class="w-1/3 px-4 py-3">Deskripsi 1 Produk yang Diajuakan</td>
                         <td class="form-group">
-                            <textarea type="text" name="deskripsi_produk" id="deskripsi_produk" class="w-full  bg-transparent form-control" required></textarea>
+                            <textarea type="text" name="deskripsi_produk" id="deskripsi_produk" class="w-full  bg-transparent form-control" ></textarea>
                         </td>
                     </tr>
                 </div class="form-group">
@@ -200,10 +200,6 @@
                 </div>
 
 
-
-
-
-
             </table>
 
             <div class="termsx">
@@ -257,7 +253,8 @@
     <div id="notificationModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="bg-white relative px-8 py-6 w-1/3 max-w-2xl max-h-full flex flex-col items-center">
             <h2 class="text-2xl font-bold mb-2">Notifikasi!</h2>
-            <h3 class="text-xl">"Data Pengajuan Berhasil Dikirim"</h3>
+            <h3 class="text-xl text-center">Data terkirim,<br>Mohon ditunggu data anda akan diproses</br></h3>
+            
         </div>
     </div>
 

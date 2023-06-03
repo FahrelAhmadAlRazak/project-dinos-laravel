@@ -29,7 +29,7 @@ class AkunController extends Controller
             'username' => 'required',
             'no_identitas'=> 'required',
             'email' => 'required|email',
-            'no_telepon' =>'required',
+            'no_telepon' =>'required|regex:/^[0-9]+$/',
             'tanggal_lahir' =>'required',
             'jalan' =>'required',
             'id_provinsi'=> 'required',

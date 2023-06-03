@@ -2,7 +2,7 @@
 @section('content')
 <div id="content" class="pt-24 px-2 py-4 flex-grow h-screen">
     <div class="my-2 px-8 pt-6 pb-4 shadow w-full h-full overflow-y-scroll">
-    <div class="flex justify-between">
+    <div class="flex justify-between border-art mb-4">
             <div>
                 <h1 class="text-3xl font-medium mb-4">Artikel</h1>
             </div>
@@ -23,7 +23,7 @@
                 <p class="font-medium text-green ">{{ $artikel->User->nama }}</p>
             </div>
     
-            <div class="text-green">{{ $artikel->created_at }}</div>
+            <div class="text-green mb-4">{{ $artikel->created_at }}</div>
     
             <div class="container">
                 <div class="">

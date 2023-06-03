@@ -156,7 +156,7 @@
         </a>
         <h2 class="text-2xl font-bold mb-2">Password Validasi!</h2>
         <h3 class="text-xl mb-6">Masukan password anda :</h3>
-        <input type="text" placeholder="Password" class="px-4 border border-slate-50 w-full rounded shadow-md" name="password" id="password">
+        <input type="password" placeholder="Password" class="px-4 border border-slate-50 w-full rounded shadow-md" name="password" id="password">
         <button id="passwordModalConf" class="mt-2 bg-blue-500 text-white px-4 py-1 rounded">Kirim</button>
         @if(session('error'))
 

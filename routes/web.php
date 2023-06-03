@@ -46,6 +46,7 @@ Route::get('/batal_pengajuan/{id}',[App\Http\Controllers\PengajuanController::cl
 
 
 Route::get('/dashboard_all', [App\Http\Controllers\DashboardController::class,'artikel_dashboard']) ->name('dashboard');
+// Route::get('/dashboard_all', [App\Http\Controllers\ArtikelController::class,'detail_artikel']) ->name('detail_artikel');
 
 
 // Route::get('/dashboard_all', function () {
@@ -81,7 +82,11 @@ Route::post('/tambahPengirimanAdmin', [App\Http\Controllers\PengirimanController
 Route::get('/lihatPengiriman_all', [App\Http\Controllers\PengirimanController::class,'lihatPengiriman'])->name('lihatPengiriman');
 // Route::get('/lihatPengiriman/{pengirimanAdmin}/{pengirimanMitra}', [App\Http\Controllers\PengirimanController::class,'detailPengirimanAdmin'])->name('detailPengiriman');
 // Route::get('/lihatPengiriman/{pengiriman}', [App\Http\Controllers\PengirimanController::class,'detailPengirimanMitra'])->name('detailPengiriman');
-Route::get('/lihatPengiriman', [App\Http\Controllers\PengirimanController::class,'detailPengiriman'])->name('detailPengiriman');
+Route::get('/lihatPengiriman/{id}', [App\Http\Controllers\PengirimanController::class,'detailPengiriman'])->name('detailPengiriman');
+
+Route::get('/sedang_dikirim/{id}', [App\Http\Controllers\PengirimanController::class,'sedang_dikirim'])->name('sedang_dikirim');
+Route::get('/sudah_dikirim/{id}', [App\Http\Controllers\PengirimanController::class,'sudah_dikirim'])->name('sudah_dikirim');
+// Route::get('/lihatPengiriman/{id}', [App\Http\Controllers\PengirimanController::class,'detailPengiriman'])->name('detailPengiriman');
 
 Route::get('/batal_pengiriman/{id}',[App\Http\Controllers\PengirimanController::class,'batal_pengiriman'])->name('batal_pengiriman');
 

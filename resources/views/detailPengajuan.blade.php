@@ -136,7 +136,7 @@
 
 
             </table>
-            {{-- @if(Str::length(Auth::guard('dataAkunAdmin')->user()) > 0) --}}
+            
             @can('admin')
             <div class="flex gap-4 sm:w-1/3 mt-4" >
                 <a id="setuju" class="w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white text-center" href="/setujuiPengajuan/{{ $pengajuan->id }}">Setujui Pengajuan</a>
