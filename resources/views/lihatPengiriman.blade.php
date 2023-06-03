@@ -54,7 +54,8 @@
                     <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->jumlah.' pcs' }}</a></td>
                     @endcan --}}
 
-                    <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->produk->harga }}</a></td>
+                    <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">Rp. {{ number_format($item->produk->harga) }}</a></td>
+
                     <td class="text-center"><a href="/lihatPengiriman/{{ $item->id }}">{{ $item->statusPengiriman->status }}</a></td>
                     @can('admin')
                     <td class="text-center w-0/5"><img src="{{ asset('images/delete.svg') }}" data-modal-target="batal-{{ $item->id }}" data-modal-toggle="batal-{{ $item->id }}" class="batal bg-admin-secondary hover:opacity-90 rounded-lg w-10 mx-auto" role="button" alt=""></td>

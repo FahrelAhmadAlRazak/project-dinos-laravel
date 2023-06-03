@@ -24,7 +24,7 @@
                     <td class="text-center"><a href="/detail_pengajuan/{{ $item->id }}">{{ $item->perusahaan->nama }}</a></td>
                     <td class="text-center"><a href="/detail_pengajuan/{{ $item->id }}">{{ $item->produk->nama }}</a></td>
                     <td class="text-center"><a href="/detail_pengajuan/{{ $item->id }}">{{ $item->produk->jumlah }}</a></td>
-                    <td class="text-center"><a href="/detail_pengajuan/{{ $item->id }}">{{ $item->produk->harga }}</a></td>
+                    <td class="text-center"><a href="/detail_pengajuan/{{ $item->id }}">Rp. {{ number_format($item->produk->harga) }}</a></td>
                     <td class="text-center"><a href="/detail_pengajuan/{{ $item->id }}"><img src="{{ asset('img/'.$item->produk->gambar) }}" alt="{{ $item->produk->gambar }}"></a></td>
                     @can('mitra')
                     <td class="text-center w-0/5"><img src="{{ asset('images/delete.svg') }}" data-modal-target="batal-{{ $item->id }}" data-modal-toggle="batal-{{ $item->id }}" class="batal bg-admin-secondary hover:opacity-90 rounded-lg w-10 mx-auto" role="button" alt=""></td>

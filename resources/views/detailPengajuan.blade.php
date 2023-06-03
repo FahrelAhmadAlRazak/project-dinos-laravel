@@ -103,7 +103,7 @@
                     <tr>
                         <td class="w-1/3 px-4 py-3">Harga Produk yang Diajukan</td>
                         <td>
-                            {{ $pengajuan->produk->harga }}
+                            Rp. {{ number_format($pengajuan->produk->harga) }}
                         </td>
                     </tr>
                 </div>

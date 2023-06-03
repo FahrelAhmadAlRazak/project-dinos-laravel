@@ -82,11 +82,10 @@
 
             <tr class="bg-slate-200">
                 <td class="w-1/3 px-4 py-3">Harga Produk</td>
-
-                <td>{{$pengiriman->produk->harga}}</td>
-
+                <td>Rp. {{ number_format($pengiriman->produk->harga) }}</td>
                 <!-- <td>: 2000-01-01</td> -->
             </tr>
+            
 
             <tr class="bg-slate-200">
                 <td class="w-1/3 px-4 py-3">Status</td>

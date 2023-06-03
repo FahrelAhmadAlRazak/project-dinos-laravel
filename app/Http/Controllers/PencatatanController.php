@@ -53,6 +53,13 @@ class PencatatanController extends Controller
             'pengeluaran_transportasi' => 'required',
             'pengeluaran_gaji' => 'required',
             'pengeluaran_lainnya' => 'required',
+        ],[
+            'pengeluaran_bahan_baku.required' =>  'kolom harus diisi',
+            'pengeluaran_produksi.required' =>  'kolom harus diisi',
+            'pengeluaran_kemasan.required' =>  'kolom harus diisi',
+            'pengeluaran_transportasi.required' =>  'kolom harus diisi',
+            'pengeluaran_gaji.required' =>  'kolom harus diisi',
+            'pengeluaran_lainnya.required' =>  'kolom harus diisi',
         ]);
         // dd($request);
         $pengeluaran_bahan_baku = $request->pengeluaran_bahan_baku;
