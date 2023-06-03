@@ -10,7 +10,10 @@
                     <div class="font-medium mb-2"><label for="nama">Judul Artikel</label></div>
                     <div class="input-art">
 
-                        <input type="text" class="form-control" id="judul" name="judul">
+                        <input type="text" class="form-control @error('judul') is-invalid @enderror" id="judul" name="judul">
+                        @error('judul')
+                                <div class="invalid-feedback "> <p class="mt-3 bg-red-700 text-white px-8 py-2 rounded-lg">{{ $message }}</p></div>
+                            @enderror
                     </div>
                 </div>
             </div>
@@ -19,7 +22,10 @@
                     <div class="font-medium mb-2"><label for="nama">Isi</label></div>
                     <div class="input-art">
 
-                        <textarea type="text" class="form-control" id="isi" name="isi"></textarea>
+                        <textarea type="text" class="form-control @error('isi') is-invalid @enderror" id="isi" name="isi"></textarea>
+                        @error('isi')
+                                <div class="invalid-feedback "> <p class="mt-3 bg-red-700 text-white px-8 py-2 rounded-lg">{{ $message }}</p></div>
+                            @enderror
                     </div>
                  
 
@@ -30,7 +36,10 @@
                     <div class="font-medium mb-2"><label for="nama">Gambar</label></div>
                     <div class="input-art">
 
-                        <input type="file" class="form-control" id="gambar" name="gambar" multiple>
+                        <input type="file" class="form-control @error('gambar') is-invalid @enderror" id="gambar" name="gambar" multiple>
+                        @error('gambar')
+                                <div class="invalid-feedback "> <p class="mt-3 bg-red-700 text-white px-8 py-2 rounded-lg">{{ $message }}</p></div>
+                            @enderror
                     </div>
                 </div>
             </div>

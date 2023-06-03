@@ -20,6 +20,10 @@ class ArtikelController extends Controller
             'judul' => 'required',
             'isi' => 'required',
             'gambar' => 'required', 
+        ],[
+            'judul.required' => 'Judul artikel harus diisi',
+            'isi.required' => 'Isi artikel harus diisi',
+            'gambar.required' => 'Gambar artikel harus diisi',
         ]);
         Artikel::create([
             $gambar = $request->gambar,
@@ -63,6 +67,11 @@ class ArtikelController extends Controller
             'judul' => 'required',
             'isi' => 'required',
             'gambar' => 'required',
+        ],[
+            'judul.required' => 'Judul artikel harus diisi',
+            'isi.required' => 'Isi artikel harus diisi',
+            'gambar.required' => 'Gambar artikel harus diisi',
+
         ]);
         
         $artikel_update = Artikel::find($id);

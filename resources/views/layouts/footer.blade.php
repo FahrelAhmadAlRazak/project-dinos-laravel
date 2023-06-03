@@ -2,9 +2,8 @@
         <div class="nav-footer">
             © 2023 Dinos. All Rights Reserved
             <div class="nav-foot">
-                <a href="">Beranda</a>
-                <a href="">About Us</a>
-                <a href="">Blog</a>
+                <a href="/landing-page">Beranda</a>
+                <a href="/signin">Artikel</a>
             </div>
             <div class="nav-foot-icon">
                 <a href=""><img src="imgIcon/.icon-instagram.png" alt=""></a>

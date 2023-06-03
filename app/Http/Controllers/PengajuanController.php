@@ -14,6 +14,7 @@ use App\Models\StatusPengajuan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
 class PengajuanController extends Controller
@@ -85,14 +86,17 @@ class PengajuanController extends Controller
             'jalan' => 'required',
             'id_kota' => 'required',
             'id_provinsi' => 'required',
-            'nomer_izin_usaha' => 'required',
-            'notelp_perusahaan' => 'required',
+            'nomer_izin_usaha' => 'required|regex:/^[0-9]+$/',
+            'notelp_perusahaan' => 'required|regex:/^[0-9]+$/',
             'email_perusahaan' => 'required',
             'nama' => 'required',
             'jumlah_produk' => 'required',
             'harga_produk' => 'required',
             'deskripsi_produk' => 'required',
-            'gambar_produk' => 'required'
+            'gambar_produk' => 'required',
+            'setuju' => 'required'
+        ],[
+            'setuju.required' => 'Harus menyutujui syarat dan pernyataan',
         ]);
 
         $perusahaan = Perusahaan::create([
@@ -167,19 +171,53 @@ class PengajuanController extends Controller
 
     }
 
-    public function batal_pengajuan($id)
-    {
-        $data = Pengajuan::find($id);
-        $status = $data->id_status_pengajuan;
+    // public function batal_pengajuan($id)
+    // {
+    //     $data = Pengajuan::find($id);
+    //     $status = $data->id_status_pengajuan;
 
-        if ($status == 1) {
-            $data->delete();
-            return redirect()->back()->with(['success' => 'Data Berhasil dihapus']);
+    //     if ($status == 1) {
+    //         $data->delete();
+    //         return redirect()->back()->with(['success' => 'Data Berhasil dihapus']);
+    //     }
+
+    //     // return redirect('showpengajuan');
+    //     return redirect()->back()->with(['error' => 'Tidak dapat menghapus pengajuan']);
+    // }
+
+    public function batal_pengajuan($id)
+{
+    // Nonaktifkan foreign key constraint
+    DB::statement('SET FOREIGN_KEY_CHECKS=0');
+
+    $pengajuan = Pengajuan::find($id);
+    $status = $pengajuan->id_status_pengajuan;
+
+    if ($status == 1) {
+        $produk = Produk::find($pengajuan->id_produk);
+
+        // Hapus produk terkait
+        if ($produk) {
+            $produk->delete();
         }
 
-        // return redirect('showpengajuan');
-        return redirect()->back()->with(['error' => 'Tidak dapat menghapus pengajuan']);
+        // Hapus pengajuan
+        $pengajuan->delete();
+
+        // Aktifkan kembali foreign key constraint
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
+
+        return redirect()->back()->with(['success' => 'Data berhasil dihapus']);
     }
+
+    // Aktifkan kembali foreign key constraint
+    DB::statement('SET FOREIGN_KEY_CHECKS=1');
+
+    return redirect()->back()->with(['error' => 'Tidak dapat menghapus pengajuan']);
+}
+
+
+
     public function setujuiPengajuan(Pengajuan $pengajuan)
     {
         $datapengajuan = Pengajuan::find($pengajuan->id);

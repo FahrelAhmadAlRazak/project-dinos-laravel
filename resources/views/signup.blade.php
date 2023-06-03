@@ -38,10 +38,10 @@
                     <div class="">
                         <label for="nama"></label>
                         <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Nama">
-                        @if($errors->has('nama'))
+                        {{-- @if($errors->has('nama'))
                         
                         <p class="alert alert-danger"> {{ $errors->first('nama') }}</p>
-                        @endif
+                        @endif --}}
                         {{-- @error('nama')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror --}}
@@ -68,7 +68,7 @@
 
                     <div class="">
                         <label for="no_identitas"></label>
-                        <input type="text" class="form-control @error('nomor_identitas') is-invalid @enderror" id="no_identitas" name="no_identitas" placeholder="Nomor Identitas Penduduk">
+                        <input type="text" class="form-control @error('no_identitas') is-invalid @enderror" id="no_identitas" name="no_identitas" placeholder="Nomor Identitas Penduduk">
                         {{-- @error('username')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror --}}
@@ -95,7 +95,7 @@
 
                     <div class="">
                         <label for="tanggal_lahir"></label>
-                        <input type="date" class="form-control" @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" name="tanggal_lahir">
+                        <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" name="tanggal_lahir">
                         {{-- <input type="text" class="form-control @error('jalan') is-invalid @enderror" id="jalan" name="jalan" placeholder="Jalan" > --}}
                         {{-- @error('no_telpon')
                             <span class="text-danger">{{ $message }}</span>

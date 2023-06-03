@@ -226,8 +226,11 @@
 
             </div>
             <div class="form-check w-full float-right">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                <input type="checkbox" class="form-control @error('setuju') is-invalid @enderror" name="setuju" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Setuju</label>
+                @error('setuju')
+                    <div class="invalid-feedback "> <p class="text-red">{{ $message }}</p></div>
+                @enderror
             </div>
 
 

@@ -110,7 +110,7 @@ class PengirimanController extends Controller
         $produk = Produk::all();
         $toko = Toko::all();
         $kantor = KantorAdmin::all();
-        return view('tambahPengiriman', compact('produk', 'kantor', 'toko', 'pengajuan', 'pengirimanAdmin'));
+        return view('tambahPengiriman', compact('produk', 'kantor', 'toko', 'pengajuan', 'pengirimanAdmin'))->with('message', 'Pengiriman berhasil ditambahkan');
     }
 
     public function tambahPengirimanMitra(Request $request)
@@ -147,7 +147,10 @@ class PengirimanController extends Controller
         $validate = $request->validate([
             'id_toko' => 'required',
             'id_produk' => 'required',
-            'jumlah' => 'required',
+            'jumlah' => 'required|numeric',
+        ],[
+            'jumlah.required' => 'Kolom jumlah harus diisi.',
+            'jumlah.numeric' => 'Kolom jumlah harus berupa angka.',
         ]);
 
         // dd($validate);

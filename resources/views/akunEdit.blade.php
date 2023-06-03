@@ -13,7 +13,10 @@
                         <td class="w-1/3 px-4 py-3">Nama</td>
                         <td>
                             <label for="nama"></label>
-                            <input type="text" name="nama" id="nama" class="form-control w-full  bg-transparent" value="{{ auth()->user()->nama }}" required>
+                            <input type="text" name="nama" id="nama" class="form-control w-full  bg-transparent @error('nama') is-invalid @enderror" value="{{ auth()->user()->nama }}">
+                            @error('nama')
+                                <div class="invalid-feedback "> <p class="mt-3 bg-red-700 text-white px-8 py-2 rounded-lg">{{ $message }}</p></div>
+                            @enderror
                         </td>
                     </tr>
                 </div>
@@ -23,7 +26,10 @@
                         <td class="w-1/3 px-4 py-3">Username</td>
                         <td>
                             <label for="username"></label>
-                            <input type="text" name="username" id="username" class="form-control w-full  bg-transparent" value="{{ auth()->user()->username }}" required>
+                            <input type="text" name="username" id="username" class="form-control w-full  bg-transparent @error('username') is-invalid @enderror" value="{{ auth()->user()->username }}">
+                            @error('username')
+                                <div class="invalid-feedback "> <p class="mt-3 bg-red-700 text-white px-8 py-2 rounded-lg">{{ $message }}</p></div>
+                            @enderror
                         </td>
                     </tr>
                 </div>
@@ -33,7 +39,10 @@
                         <td class="w-1/3 px-4 py-3">Email</td>
                         <td>
                         <label for="email"></label>
-                            <input type="email" name="email" id="email" class="form-control w-full  bg-transparent" value="{{ auth()->user()->email }}" required>
+                            <input type="email" name="email" id="email" class="form-control w-full  bg-transparent @error('email') is-invalid @enderror" value="{{ auth()->user()->email }}">
+                            @error('email')
+                                <div class="invalid-feedback "> <p class="mt-3 bg-red-700 text-white px-8 py-2 rounded-lg">{{ $message }}</p></div>
+                            @enderror
                         </td>
                     </tr>
                 </div>
@@ -53,7 +62,10 @@
                         <td class="w-1/3 px-4 py-3">Nomor Identitas</td>
                         <td>
                         <label for="nomor_identitas"></label>
-                            <input type="text" name="no_identitas" id="no_identitas" class="form-control w-full  bg-transparent" value="{{ auth()->user()->no_identitas }}">
+                            <input type="text" name="no_identitas" id="no_identitas" class="form-control w-full  bg-transparent @error('no_identitas') is-invalid @enderror" value="{{ auth()->user()->no_identitas }}">
+                            @error('no_identitas')
+                                <div class="invalid-feedback "> <p class="mt-3 bg-red-700 text-white px-8 py-2 rounded-lg">{{ $message }}</p></div>
+                            @enderror
                         </td>
                     </tr>
                 </div>
@@ -63,7 +75,10 @@
                         <td class="w-1/3 px-4 py-3">Jalan</td>
                         <td>
                         <label for="Jalan"></label>
-                            <input type="text" name="jalan" id="jalan" class="form-control w-full  bg-transparent" value="{{ auth()->user()->jalan }}" required>
+                            <input type="text" name="jalan" id="jalan" class="form-control w-full  bg-transparent @error('jalan') is-invalid @enderror" value="{{ auth()->user()->jalan }}">
+                            @error('jalan')
+                                <div class="invalid-feedback "> <p class="mt-3 bg-red-700 text-white px-8 py-2 rounded-lg">{{ $message }}</p></div>
+                            @enderror
                         </td>
                     </tr>
                 </div>
@@ -104,7 +119,10 @@
                     <td class="w-1/3 px-4 py-3">No Telepon</td>
                     <td>
                         <label for="no_telepon"></label> 
-                        <input type="text" name="no_telepon" id="no_telepon" class="form-control w-full  bg-transparent" value="{{ auth()->user()->no_telepon }}" required>
+                        <input type="text" name="no_telepon" id="no_telepon" class="form-control w-full  bg-transparent @error('no_telepon') is-invalid @enderror" value="{{ auth()->user()->no_telepon }}">
+                        @error('no_telepon')
+                                <div class="invalid-feedback "> <p class="mt-3 bg-red-700 text-white px-8 py-2 rounded-lg">{{ $message }}</p></div>
+                            @enderror
                     </td>
                 </tr>
                 </div>
@@ -113,7 +131,10 @@
                     <td class="w-1/3 px-4 py-3">Tanggal Lahir</td>
                     <td>
                     <label for="tanggal_lahir"></label> 
-                        <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control w-full  bg-transparent" value="{{ auth()->user()->tanggal_lahir }}" required>
+                        <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control w-full  bg-transparent @error('tanggal_lahir') is-invalid @enderror" value="{{ auth()->user()->tanggal_lahir }}">
+                        @error('tanggal_lahir')
+                                <div class="invalid-feedback "> <p class="mt-3 bg-red-700 text-white px-8 py-2 rounded-lg">{{ $message }}</p></div>
+                            @enderror
                     </td>
                 </tr>
                 

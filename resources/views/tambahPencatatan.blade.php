@@ -66,7 +66,7 @@
 
             <div class="flex gap-4 sm:w-1/3 float-right mt-4">
 
-                <a href="#" class="w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white text-center">Batal</a>
+                <a href="/dashboard_all" class="w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white text-center">Kembali</a>
                 <button class="w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white">Simpan</button>
             </div>
         </form>

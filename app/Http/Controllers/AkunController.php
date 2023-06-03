@@ -97,14 +97,24 @@ class AkunController extends Controller
         $validate = $request->validate([
             'nama' => 'required',
             'username' => 'required',
-            'no_identitas'=> 'required',
+            'no_identitas'=> 'required|numeric',
             'email' => 'required|email',
-            'no_telepon' =>'required',
+            'no_telepon' =>'required|numeric',
             'tanggal_lahir' =>'required',
             'jalan' =>'required',
             'id_provinsi'=> 'required',
             'id_kota'=> 'required',
             'id_role' => 'required'
+        ],[
+            'nama.required' => 'Nama harus diisi',
+            'username.required' => 'Username harus diisi',
+            'no_identitas.required' => 'Nomer Identitas harus diisi',
+            'no_identitas.numeric' => 'Kolom jumlah harus berupa angka.',
+            'no_telepon.numeric' => 'Kolom jumlah harus berupa angka.',
+            'email.required' => 'Email Identitas harus diisi',
+            'no_telepon.required' => 'Nomer Telepon Identitas harus diisi',
+            'tanggal_lahir.required' => 'Tanggal Lahir Identitas harus diisi',
+            'jalan.required' => 'Jalan harus diisi',
         ]);
 
         // $s = auth()->user()->getAuthPassword();

@@ -4,6 +4,14 @@
 <div id="content" class="pt-24 px-2 py-4 flex-grow h-screen">
     <div class="my-2 px-8 pt-6 pb-4 shadow w-full h-full overflow-y-scroll">
         <h1 class="text-3xl font-medium mb-4">Tambah Pengiriman</h1>
+        {{-- @if(session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif --}}
+        @if(session('message'))
+        <p class="alert alert-success"> {{ session('message') }}</p>
+        @endif
         @can('mitra')
         <form id="buat-pengiriman" method="post" action="{{ route('tambahPengirimanMitra') }}">
             @csrf
@@ -82,6 +90,15 @@
                         <td>
                             <label for="jumlah"></label>
                             <input type="text" class="form-control @error('jumlah') is-invalid @enderror" name="jumlah" id="jumlah" class="form-control w-full  bg-transparent">
+                            @error('jumlah')
+                                <div class="invalid-feedback "> <p class="mt-3 bg-red-700 text-white px-8 py-2 rounded-lg">{{ $message }}</p></div>
+                            @enderror
+                            
+                            {{-- @if ($errors->has('error'))
+                            <div class="alert alert-danger">
+                                {{ $errors->first('error') }}
+                            </div>
+                            @endif --}}
                         </td>
                     </tr>
                 </div>
@@ -92,7 +109,7 @@
             <button class="selanjutnya w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white flex justify-center items-center" id="submit">Kirim</button>
         </form>
         <!-- Tampilkan pesan kesalahan -->
-        @if ($errors->has('error'))
+        {{-- @if ($errors->has('error'))
         <div class="alert alert-danger">
             {{ $errors->first('error') }}
         </div>
@@ -103,7 +120,7 @@
         <div class="alert alert-success">
             {{ session('message') }}
         </div>
-        @endif
+        @endif --}}
         @endcan
 
         {{-- <a href="{{ route('buat_pengajuan-1') }}" class=" selanjutnya w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white flex justify-center items-center " id="logoutBtn">Selanjutnya</a> --}}
