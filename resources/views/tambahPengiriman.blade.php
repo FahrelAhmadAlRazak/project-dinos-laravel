@@ -9,9 +9,7 @@
                 {{ session('message') }}
             </div>
         @endif --}}
-        @if(session('message'))
-        <p class="alert alert-success"> {{ session('message') }}</p>
-        @endif
+       
         @can('mitra')
         <form id="buat-pengiriman" method="post" action="{{ route('tambahPengirimanMitra') }}">
             @csrf
@@ -109,7 +107,7 @@
             <button class="selanjutnya w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white flex justify-center items-center" id="submit">Kirim</button>
         </form>
         <!-- Tampilkan pesan kesalahan -->
-        {{-- @if ($errors->has('error'))
+        @if ($errors->has('error'))
         <div class="alert alert-danger">
             {{ $errors->first('error') }}
         </div>
@@ -120,8 +118,9 @@
         <div class="alert alert-success">
             {{ session('message') }}
         </div>
-        @endif --}}
+        @endif
         @endcan
+        
 
         {{-- <a href="{{ route('buat_pengajuan-1') }}" class=" selanjutnya w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white flex justify-center items-center " id="logoutBtn">Selanjutnya</a> --}}
         <!-- <a href="" class="w-1/2 bg-admin-secondary hover:opacity-90 py-1 rounded-full text-white text-center">Edit</a> -->

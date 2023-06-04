@@ -17,7 +17,7 @@
                 <p class="text-white hidden lg:block">Akun</p>
             </a>
             @can('admin')
-            <a href="{{ route('pengajuan') }}" class="flex items-center gap-3 px-8">
+            <a href="/showpengajuan" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/document.svg') }}" class="w-5" alt="">
                 <p class="text-white hidden lg:block">Pengajuan</p>
             </a>

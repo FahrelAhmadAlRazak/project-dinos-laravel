@@ -17,7 +17,12 @@ class MonitorController extends Controller
         // return view('monitor', compact('monitor'));
 
         if (Gate::allows('admin')) {
-            $monitor = TokoProduk::all();
+            $monitor = TokoProduk::join('produks', 'toko_produks.id_produk', '=', 'produks.id')
+            ->join('pengajuans', 'produks.id', '=', 'pengajuans.id_produk')
+            ->join('users', 'pengajuans.id_user', '=', 'users.id')
+            ->select('toko_produks.*', 'users.nama as mitra')
+            ->get();
+            
         } else {
             $monitor = TokoProduk::whereIn('id_produk', function ($query) {
                 $query->select('id_produk')

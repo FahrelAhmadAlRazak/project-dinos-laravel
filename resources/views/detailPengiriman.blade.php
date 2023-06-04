@@ -71,7 +71,18 @@
 
                 <!-- <td>: 2000-01-01</td> -->
             </tr>
+            
+            @can('admin')
+            <tr class="bg-slate-200">
+                <td class="w-1/3 px-4 py-3">Jumlah Produk</td>
 
+                <td>{{$pengiriman->jumlah . ' pcs'}}</td>
+
+                <!-- <td>: 2000-01-01</td> -->
+            </tr>
+            @endcan
+
+            @can('mitra')
             <tr class="bg-slate-200">
                 <td class="w-1/3 px-4 py-3">Jumlah Produk</td>
 
@@ -79,12 +90,29 @@
 
                 <!-- <td>: 2000-01-01</td> -->
             </tr>
+            @endcan
+
+            @can('kurir')
+            <tr class="bg-slate-200">
+                <td class="w-1/3 px-4 py-3">Jumlah Produk</td>
+
+                
+                @if ($pengiriman instanceof \App\Models\PengirimanAdmin)
+                <td>{{$pengiriman->produk->jumlah . ' pcs'}}</td>
+                @elseif ($pengiriman instanceof \App\Models\PengirimanToko)
+                <td>{{$pengiriman->jumlah . ' pcs'}}</td>
+                @endif
+
+                <!-- <td>: 2000-01-01</td> -->
+            </tr>
+            @endcan
 
             <tr class="bg-slate-200">
                 <td class="w-1/3 px-4 py-3">Harga Produk</td>
                 <td>Rp. {{ number_format($pengiriman->produk->harga) }}</td>
                 <!-- <td>: 2000-01-01</td> -->
             </tr>
+            
             
 
             <tr class="bg-slate-200">

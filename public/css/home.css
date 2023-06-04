@@ -112,6 +112,11 @@
 .collapse navbar-collapse{
     float: right;
 } */
+
+.navbar-landing{
+    background-color: #9EAA91;
+}
+
 .container-2{
     padding: 80px;
     margin: -40px 90px  30vh;
@@ -145,3 +150,14 @@
 .container-2 h3{
     font-weight: bold;
 }
+
+.nav-link {
+    /* Kode CSS lainnya */
+    transition: background-color 0.3s ease, border-radius 0.3s ease, color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    background-color: #56A17E;
+    border-radius: 50px;
+    color: white;
+  }

@@ -4,6 +4,7 @@
 @endsection -->
 @section('content')
 
+
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script> -->
 
@@ -14,6 +15,9 @@
             <table class="data-pengajuan border w-full overflow-x-scroll">
                 <tr>
                     <th>Toko</th>
+                    @can('admin')
+                    <th>Mitra</th>
+                    @endcan
                     <th>Produk</th>
                     <th>Stok Produk</th>
                     <th>Produk Terjual</th>
@@ -25,6 +29,9 @@
                 @foreach ($monitor as $item)
                 <tr class="bg-slate-200">
                     <td class="text-center">{{ $item->toko->nama }}</td>
+                    @can('admin')
+                    <td class="text-center">{{ $item->mitra }}</td>
+                    @endcan
                     <td class="text-center">{{ $item->produk->nama }}</td>
                     <td class="text-center">{{ $item->stok_produk . ' pcs' }}</td>
                     <td class="text-center">{{ $item->total_penjualan . ' pcs' }}</td>
@@ -32,7 +39,8 @@
                     <td class="w-0/5 bg-admin-secondary hover:opacity-90 py-1 rounded-lg text-white text-center" role="button" onclick="showModals({{ $item->id }}, {{ $item->stok_produk }})">Ubah Stok</td>
                     @endcan
                 </tr>
-
+                
+                @endforeach
                 {{-- <div id="update" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
                         <div class="bg-white relative px-8 py-6 w-1/3 max-w-2xl max-h-full flex flex-col items-center">
                             <h2 class="text-2xl font-bold mb-2">Ubah Stok</h2>
@@ -59,7 +67,6 @@
                         </div>
                     </div> --}}
 
-                @endforeach
 
 
             </table>
