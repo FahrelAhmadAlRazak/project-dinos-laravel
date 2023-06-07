@@ -27,8 +27,8 @@
             <h2 class="text-2xl font-bold mb-2">Notifikasi!</h2>
             <h3 class="text-xl mb-6">"Anda yakin ingin keluar?"</h3>
             <div class="flex gap-4 w-2/3">
-                <a class ="w-1/2 bg-green-700 text-white text-center py-2" id="iyaLogout" href="{{route('logout')}}">Iya</a>
-                <button class="w-1/2 bg-red-700 text-white py-2" id="noLogout" data-modal-target="logoutModal" data-modal-toggle="logoutModal">Tidak</button>
+                <a class ="w-1/2 bg-green-700 text-white text-center py-2 rounded-lg" id="iyaLogout" href="{{route('logout')}}">Iya</a>
+                <button class="w-1/2 bg-red-700 text-white py-2 rounded-lg" id="noLogout" data-modal-target="logoutModal" data-modal-toggle="logoutModal">Tidak</button>
             </div>
         </div>
     </div>
