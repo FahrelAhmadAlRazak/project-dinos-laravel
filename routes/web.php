@@ -25,6 +25,9 @@ Route::get('/', function () {
 
 
 // Akun Controller
+Route::post('/get-kota-by-provinsi', [App\Http\Controllers\AkunController::class, 'getKotaByProvinsi'])->name('getKotaByProvinsi');
+
+
 Route::get('/signup', [App\Http\Controllers\AkunController::class,'show_signup']) ->name('showsignup');
 Route::post('/signup', [App\Http\Controllers\AkunController::class,'signup']) ->name('signup');
 

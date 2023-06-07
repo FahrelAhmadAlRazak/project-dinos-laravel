@@ -7,45 +7,45 @@
 
             </div>
             <hr>
-            <a href="{{ route('dashboard') }}" class="flex items-center gap-3 px-8">
+            <a href="{{ route('dashboard') }}" id="dashboard" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/home_active.svg') }}" class="w-5" alt="">
-                <p class="text-yellow hidden lg:block">Dashboard</p>
+                <p class="text-white hidden lg:block">Dashboard</p>
             </a>
 
-            <a href="{{ route('show_akun') }}" class="flex items-center gap-3 px-8">
+            <a href="{{ route('show_akun') }}" id="akun" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/person.svg') }}" class="w-5" alt="">
                 <p class="text-white hidden lg:block">Akun</p>
             </a>
             @can('admin')
-            <a href="/showpengajuan" class="flex items-center gap-3 px-8">
+            <a href="/showpengajuan" id="pengajuan" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/document.svg') }}" class="w-5" alt="">
                 <p class="text-white hidden lg:block">Pengajuan</p>
             </a>
             @endcan
 
             @can('mitra')
-            <a href="{{ route('pengajuan') }}" class="flex items-center gap-3 px-8">
+            <a href="{{ route('pengajuan') }}" id="pengajuan" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/document.svg') }}" class="w-5" alt="">
                 <p class="text-white hidden lg:block">Pengajuan</p>
             </a>
             @endcan
            
             @can('admin')
-            <a href="{{ route('pengiriman') }}" class="flex items-center gap-3 px-8">
+            <a href="{{ route('pengiriman') }}" id="pengiriman" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/truck.svg') }}" class="w-5" alt="">
                 <p class="text-white hidden lg:block">Pengiriman</p>
             </a>
             @endcan
 
             @can('mitra')
-            <a href="{{ route('pengiriman') }}" class="flex items-center gap-3 px-8">
+            <a href="{{ route('pengiriman') }}" id="pengiriman" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/truck.svg') }}" class="w-5" alt="">
                 <p class="text-white hidden lg:block">Pengiriman</p>
             </a>
             @endcan
 
             @can('kurir')
-            <a href="{{ route('lihatPengiriman') }}" class="flex items-center gap-3 px-8">
+            <a href="{{ route('lihatPengiriman') }}" id="pengiriman" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/truck.svg') }}" class="w-5" alt="">
                 <p class="text-white hidden lg:block">Pengiriman</p>
             </a>
@@ -56,20 +56,20 @@
                 <p class="text-white hidden lg:block">Monitor</p>
             </a> -->
             @can('admin')
-            <a href="{{ route('monitor') }}" class="flex items-center gap-3 px-8">
+            <a href="{{ route('monitor') }}" id="monitor" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/monitor.svg') }}" class="w-5" alt="">
                 <p class="text-white hidden lg:block">Monitor</p>
             </a>
             @endcan
             @can('mitra')
-            <a href="{{ route('monitor') }}" class="flex items-center gap-3 px-8">
+            <a href="{{ route('monitor') }}" id="monitor" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/monitor.svg') }}" class="w-5" alt="">
                 <p class="text-white hidden lg:block">Monitor</p>
             </a>
             @endcan
 
             @can('mitra')
-            <a href="{{ route('pencatatan') }}" class="flex items-center gap-3 px-8">
+            <a href="{{ route('pencatatan') }}" id="pencatatan" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/pencatatan.svg') }}" class="w-5" alt="">
                 <p class="text-white hidden lg:block">Pencatatan</p>
             </a>
@@ -78,14 +78,14 @@
            
 
             @can('admin')
-            <a href="{{ route('artikel') }}" class="flex items-center gap-3 px-8">
+            <a href="{{ route('artikel') }}" id="artikel" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/blog.svg') }}" class="w-5" alt="">
                 <p class="text-white hidden lg:block">Artikel</p>
             </a>
             @endcan
             
             @can('mitra')
-            <a href="{{ route('artikel') }}" class="flex items-center gap-3 px-8">
+            <a href="{{ route('artikel') }}" id="artikel" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/blog.svg') }}" class="w-5" alt="">
                 <p class="text-white hidden lg:block">Artikel</p>
             </a>
@@ -93,9 +93,11 @@
 
 
             @can('admin')
-            <a href="{{ route('dataPartner') }}" class="flex items-center gap-3 px-8">
+            <a href="{{ route('dataPartner') }}" id="partner" class="flex items-center gap-3 px-8">
                 <img src="{{ asset('images/hand.svg') }}" class="w-5" alt="">
                 <p class="text-white hidden lg:block">Partner</p>
             </a>
            @endcan
         </div>
+        
+        

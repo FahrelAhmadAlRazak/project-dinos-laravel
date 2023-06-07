@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="style1.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400&display=swap" rel="stylesheet">
@@ -16,10 +14,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/signIn.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
-    
-
 </head>
 
 <body>
@@ -112,7 +106,7 @@
 
                         <div class="form-group" style="display: flex; align-items: center; gap: 10px; padding-top: 2px;">
                             <label for="exampleFormControlSelect2">Provinsi</label>
-                            <select class="form-control w-50" name="id_provinsi" id="id_provinsi" s>
+                            <select class="form-control w-50" name="id_provinsi" id="provinsi" s>
                                 <option disabled value>Pilih Provinsi</option>
                                 @foreach($provinsi as $item)
                                 <option value="{{ $item->id }}"> {{ $item->nama }} </option>
@@ -123,7 +117,7 @@
                         {{-- @dd(count($provinsi)) --}}
                         <div class="form-group" style="display: flex; align-items: center; gap: 10px; padding-top: 14px;">
                             <label for="exampleFormControlSelect2">Kota</label>
-                            <select class="form-control w-50 mb-3" name="id_kota" id="id_kota">
+                            <select class="form-control w-50 mb-3" name="id_kota" id="kota">
                                 <option disabled value>Pilih Kota</option>
                                 @foreach($provinsi[11]->kota as $item)
                                 <option value="{{ $item->id }}"> {{ $item->nama }} </option>
@@ -160,6 +154,33 @@
     </div>
   </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function () {
+        $('#provinsi').change(function () {
+            var provinsiId = $(this).val();
+
+            $.ajax({
+                url: '/get-kota-by-provinsi',
+                type: 'POST',
+                data: {
+                    '_token': '{{ csrf_token() }}',
+                    'provinsi_id': provinsiId
+                },
+                success: function (response) {
+                    var kotaSelect = $('#kota');
+                    kotaSelect.empty();
+
+                    $.each(response, function (key, value) {
+                        kotaSelect.append('<option value="' + value.id + '">' + value.nama + '</option>');
+                    });
+                }
+            });
+        });
+    });
+</script>
 <!-- <script>
         $(function(){
             $(document).on('click','#daftar',function(e){

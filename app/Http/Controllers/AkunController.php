@@ -55,6 +55,13 @@ class AkunController extends Controller
         return redirect('signin')->with('successsignup','akun berhasil di buat');
 
     }
+    public function getKotaByProvinsi(Request $request)
+{
+    $provinsiId = $request->input('provinsi_id');
+    $kotaList = Kota::where('id_provinsi', $provinsiId)->get();
+
+    return response()->json($kotaList);
+}
 
     public function show_signin() {
         return view('signin');

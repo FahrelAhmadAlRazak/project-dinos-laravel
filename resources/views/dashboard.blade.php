@@ -56,9 +56,9 @@
             <div class="slider">
               
                     <!-- <img src="img/Artikel1.jpg"> -->
-                    <img src="img/Artikel2.jpg">
-                    <img src="img/Artikel3.jpg">
-                    <img src="img/Artikel4.jpg">
+                    <img src="img/Artikel2.png">
+                    <img src="img/Artikel3.png">
+                    <img src="img/Artikel4.png">
                
             </div>
 
